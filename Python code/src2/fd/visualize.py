@@ -54,14 +54,14 @@ class Visualise_patient():
                             [(0,0,0),(0.4,0.4,0.4)]]
                     
                     for i, toggle in enumerate(exercise_toggle):     
-                        print(type(int(exer.patientid)), type(patientnr[0]))
+                        
                         if toggle and int(exer.patientid) in patientnr:
                             
-                            print('hit')
+                            
                             j = 0
                             for axsi in axs:
                                 for ax in axsi:
-                                    print(i)
+                                    
                                     ax.plot(y,df_r.iloc[:,j], c = color[4][0], linestyle= linestyle)
                                     ax.plot(y,df_l.iloc[:,j], c = color[i][1], linestyle= linestyle)
                                     ax.grid(b=True, which='major', color='k', linestyle='-', alpha=0.3)

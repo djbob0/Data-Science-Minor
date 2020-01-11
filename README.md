@@ -187,8 +187,8 @@ Once we visited the LUMC and recorded our own movement data, It was about time t
 
 Even though we had a protocol, to keep track in which order the tasks have been performed, it still was wearisome work, because this wasn’t the time for mistakes, since the recording should proof the reliability of the script that was planned to be used to label our dataset. To Accomplish this task I used Adobe Premiere.  
 
-     After hours of trial and error, I came to the conclusion, that I won’t be able to get a proper representation of the data, using Blender. That’s because of the Euler Angles that are used to describe the patients movement. In the Euler Angles nature lays, that the three angles can only describe ONE rotation in 3d space. This only applies, if the three axes are staying in the same order. This being said: X = 34°, Y = 45°,  Z = 180° is different to : Z = 180°, X = 34°, Y = 45°. 
-     For whatever reason, this order needed to be switched for different movements in Blender. But I could re the corealation and I didn't want to make any assumptions, because this script was seen as a tool to find errors in the data.
+After hours of trial and error, I came to the conclusion, that I won’t be able to get a proper representation of the data, using Blender. That’s because of the Euler Angles that are used to describe the patients movement. In the Euler Angles nature lays, that the three angles can only describe ONE rotation in 3d space. This only applies, if the three axes are staying in the same order. This being said: X = 34°, Y = 45°,  Z = 180° is different to : Z = 180°, X = 34°, Y = 45°. 
+For whatever reason, this order needed to be switched for different movements in Blender. But I could re the corealation and I didn't want to make any assumptions, because this script was seen as a tool to find errors in the data.
 
 ## 3.2 Matplotlib
 
