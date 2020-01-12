@@ -1,35 +1,6 @@
 # Data-Science-Minor
 This is the personal portfolio for The Data Science Minor at THUAS by Raphael Pickl
 
-- [1. Introduction](#1-Introduction)
-- [2. Personal development](#2-Personal-development)
-  - [2.1 DataCamp courses](#21-DataCamp-courses)
-  - [2.2 Other online courses](#22-Other-Online-courses)
-- [3. Project Ortho Eyes](#3-Project-Ortho-Eyes)
-  - [3.1 Project's scope and relevance](#31-Project's-scope-and-relevance)
-  - [3.2 Strategy](#32-Research-proposal)
-     - [3.2.1 Reproducing last group's work](#321-Reproducing-last-groups-work)
-     - [3.2.1 Research proposal](#321-Research-proposal)
-- [4. Data Visualization](#4-The-data-as-we-know)
-  - [4.1 Flock of birds system](#41-Flock-of-birds-system)
-  - [4.1 Raw visualization](#41-Raw-visualization)
-  - [4.1 Visualizations converted data](#41-Visualizations-converted-data)
-- [6. Data Cleaning and Enrichment](#6-Data-cleaning-and-Enrichment)
-  - [6.1 Steps in cleaning The data](#61-Steps-in-cleaning-the-data)
-  - [6.2 Removing the idle](#62-Removing-the-idle)
-  - [6.3 Different methods of data enrichment](#63-Different-methods-of-data-enrichment)
-- [7. Logistic regression model](#7-Logistic-regression-model)
-     - [7.1 Configuration](#71-configuration)
-     - [7.2 Outcome of the model](#72-Outcome-of-the-model)
-     - [7.2 model evaluation](#72-model-evaluation)
- - [8. Neural Networks](#8-Neural-Networks)
-     - [8.1 recurrent neural network (RNN)](#81-recurrent-neural-network-(RNN))
-     - [8.2 convolutional neural network](#82-convolutional-neural-network)
-
-- [9. Research paper](#7-Research-paper)
-- [10. Presentaties](#7-Presentaties)
-- [11. Self reflection](#7-Self-reflection)
-
 
 # Table of contents:
 - [1. Introduction](#1-Introduction)  
@@ -42,7 +13,7 @@ This is the personal portfolio for The Data Science Minor at THUAS by Raphael Pi
   - [2.3 Data Preprocessing](#23-Data-Preprocessing)
     - [2.3.1 Logistic Regression](#231-Logistic-Regression)
     - [2.3.2 Neural Networks](#232-Neural-Networks)
-  - [2.4 Understanding Last Groups Gork](#24-Understanding-last-groups-work)
+  - [2.4 Understanding Last Groups Work](#24-Understanding-last-groups-work)
   - [2.5 Jupyter Notebooks on Machine Learing](#25-Jupyter-Notebooks-on-Machine-Learing)
 - [3. Visualization](#3-Visualization)
   - [3.1 Blender](#31-Blender)
@@ -60,7 +31,8 @@ This is the personal portfolio for The Data Science Minor at THUAS by Raphael Pi
   - [4.1 Answering the Subquestions](#41-Answering-the-Subquestions)
   - [4.2 Writing a Paper](#42-Writing-a-paper)
   - [4.2.1 Starting Structure](#421-Starting-Structure)
-- [5. Conclusion and Reflection](#5-Conclusion-and-reflection)
+- [5. Presentations](#5-Presentations)
+- [6. Conclusion and Reflection](#6-Conclusion-and-reflection)
 
 # 1. Introduction
 
@@ -72,6 +44,7 @@ Which courses and what actions did I take to improve on my Machine Leaning skill
 - Screenshot of completed courses  
 
 In the first weeks of our project, we planned one day a week for the Datacamp courses. Since I already had a small coding project in Python, which was self-thought, the year before, I already knew the basic syntax of the language. Though, having a structured course layed out, which shows one the proper techniques, which are used in the Machinelearning field. 
+![completedcourses](https://github.com/djbob0/Data-Science-Minor/blob/master/MachineLearining/Datacamp/completedcourses1.PNG)
 From week to week I felt more secure in the language, and I was able to make use of the API’s that got introduced to us in the course. Especially working in Data Science shows the beauty of an object orientated coding language like python. With the right API’s like Numpy and SKLearn it’s possible to attack unimaginable big problems with just a few lines of code. 
 
 ## 2.1.2 Udemy
@@ -104,7 +77,7 @@ Since I’ve been working with the 65 column data structure, I can say with cert
 
 ## 2.3.2 Neural Networks
 
-Also to mention is that  I prepared some data together with Hassan, not for the logistic regression but for the CNN we’ve been training.  
+Also to mention is that  I prepared some data together with Hassan, not for the Logistic-Regression-Model but for the CNN we’ve been training.  
 
 - 927ce917  
 - Picture of datastructure RGB  
@@ -156,7 +129,7 @@ Afterwards, the struggle began to find the best “resting position” for the a
 
 - Commit in task  
 - Add Blender Screenshots here  
-- Add  
+- Add How to Blend
 
 In the second phase of the refinement, I added functions, to sort the different armatures in the scene, by either their exercise- or patient-group. I also automated the script to load in multiple files at the same time. Basically the script was created to function by the click of one button.  
 - COde to show function  
@@ -236,4 +209,6 @@ All the efforts to get a real 3D visualization in Blender didn’t bring any goo
 
 ## 4.2.1 Starting Structure
 
-# 5. Conclusion and Reflection
+
+# 5. Presentations
+# 6. Conclusion and Reflection
