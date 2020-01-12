@@ -43,19 +43,68 @@ Which courses and what actions did I take to improve on my Machine Leaning skill
 ## 2.1.1 DataCamp
 - Screenshot of completed courses  
 
-In the first weeks of our project, we planned one day a week for the Datacamp courses. Since I already had a small coding project in Python, which was self-thought, the year before, I already knew the basic syntax of the language. Though, having a structured course layed out, which shows one the proper techniques, which are used in the Machinelearning field. 
-![completedcourses](https://github.com/djbob0/Data-Science-Minor/blob/master/MachineLearining/Datacamp/completedcourses1.PNG)
+In the first weeks of our project, we planned one day a week for the Datacamp courses. Since I already had a small coding project in Python, which was self-thought, the year before, I already knew the basic syntax of the language. Though, having a structured course layed out, which shows one the proper techniques, which are used in the Machinelearning field.  
+
+![completedcourses](https://github.com/djbob0/Data-Science-Minor/blob/master/Machine%20Learining/Datacamp/completed%20courses1.PNG)  
+
 From week to week I felt more secure in the language, and I was able to make use of the API’s that got introduced to us in the course. Especially working in Data Science shows the beauty of an object orientated coding language like python. With the right API’s like Numpy and SKLearn it’s possible to attack unimaginable big problems with just a few lines of code. 
 
 ## 2.1.2 Udemy
+I was able to score a good deal on one of the Udemy courses on Neural Networks with Tensorflow 2.0. Instead of over 100 Euros it was discounted to around 15 Euros. That's why I thought it wouldn't be a bad idea to improve my ML skills through a different course than the one at THUAS. I didn't want to get better with NN's for nothing, at this point of the project we wanted to start with CNN's, which this course gave a good introduction to.  
+
+- Udemy(Udemy_tenorflow) picture  
+
+For what it's worth, I was able to work through 67% of the course, which was enough to get a good understanding on what neural networks actually are and how they interprete the data we supply.  
+By the time I was finished with the course, I was more familiar with machine learning in general. I learned a lot about Model in genral, objective functions, optimazation algorithms, Tensorflow, under- and overfitting, early stopping and of course preprocessing of the data in general.  
+- Notes Udemy  
 ## 2.2 First Steps With our Data
 Writing a script to get basic information about the data depending on exercises  
 
-- Edit printouts, make clear what’s happening  
+- In Local directory and Getting to know 
 
-- In Local directory and Getting to know  
+After I got to know our data through the experiments in Blender, where at this point I was only able to load in one file at a time, I decided to read some basic information from the data. Instead of only using one file at a time, I wanted to calculate the mean for one axes, the X-axes of the right thorax, for all of the files contained in one given folder. Eventhough the mean of a dataframe can easily be calculated with the df.mean() function, I found this exercise really helpful, because it helped me understand the datastructure and it's dimensions. Also it got me used to working with classes and functions without getting to complicated for the start.
 
-After I got to know our data through the experiments in blender, where at this point I was only able to load in one file at a time, I decided to read some basic information from the data. Instead of only using one file at a time, I wanted to calculate the mean for one axes, the X-axes of the right thorax, for all of the files contained in one given folder. Eventhough the mean of a dataframe can easily be calculated with the df.mean() function, I found this exercise really helpful, because it helped me understand the datastructure and its dimensions. Also it got me used to working with classes and functions without getting to complicated for the start.
+ 
+```python
+from parserr import Parser
+import pandas as pd
+import os 
+
+directory = 'D:\\Hochschule\\5_Semester\\Orthoeyes\\Data\\test-data\\test\\'
+
+df_result = pd.DataFrame
+
+def get_data(directory):
+    datalist = []
+    for filename in os.listdir(directory):
+        if filename.endswith(".csv"):
+            datalist.append(Parser(directory+filename))
+    return datalist
+
+def get_mean(df, part):
+    var = 0
+    for value in df['thorax_r_x']:
+        var += value
+    mean = var / data.dataframe_size()
+    return(mean)
+
+for data in get_data(directory):
+    df = data.get_bodypart('thorax', 'r')
+    print(get_mean(df, 'thorax_r_x'))
+```
+In this script there's only used two functions: get_data and get_mean.  
+Get_data makes use of the parser class, to get back a list of all the dataframes in the directory. get_mean calculates the mean of one column in a dataframe.  
+At the end of the script I simply loop trough the whole datalist to get all the means of all the files. The printout isn't really pretty, but since it was more a proof of concept it worked for me:  
+```
+  python3 d:/Hochschule/5_Semester/Orthoeyes/Portfolio/Machine Learining/getting_to_know/test.py  
+  7.107194803858595  
+  4.41344972577624  
+  0.9291094629136488  
+  -2.493449629363173  
+  -0.9359113076469754  
+  5.993412983976696  
+```
+
 
 
 ## 2.3 Data Preprocessing
@@ -68,35 +117,140 @@ At this point of time, I already worked with our data quite a bit, I plotted som
 
 Now I wanted to load in the data to feed it to any ML model, but not by storing all the data in the memory, but by saving only the paths to the data in memory, to safe a lot of computing power. The whole groups agreed on this standard, so it was everybodys responsibility to get used to coding like this.   
 
-In main_raphy.py I was able to make use of the already written controller scripts, that were implemented in the main branch of our GitHub repository. 
-The moment I got this script working, our main structure in the masterbranch changed again, so I continued working with the code that was already supplied by my colleagues. In src2/main. A np_combination_train and np_combination_test gets created. Those are X and y for the most of the machinelearning models. This is the first time, I used the datastructure that was planned for the model from the beginning, even from the last group.  
+In main_raphi.py I was able to make use of the already written controller scripts, that were implemented in the main branch of our GitHub repository. Unfortunatly I didn't get further than just loading in the data. 
+
+```python
+from controller.datacontroller import DataController
+
+from ml.models import Models
+from ml.logisticregression import LogisticRegressionModel
+from ml.svc import SVCModel
+
+
+class config:
+    debug = False
+    tables = True
+    pp = pprint.PrettyPrinter(indent=4)
+
+    exercises = 5
+    workers = 20
+    max_chunck_size = 100
+
+    test_size = 0.2
+    test_random_state = 42
+
+    if debug:
+        basepath = "src\\data\\cleaned-regrouped-small\\"
+    else:
+        basepath = "src\\data\\cleaned-regrouped\\"
+
+print('ORTHO: Prepairing Dataset')
+
+controller = DataController(config)
+controller.run()
+```
+
+The moment I got this script working, our main structure in the masterbranch changed again, so I continued working with the code that was already supplied by my colleges. In src2/main. A np_combination_train and np_combination_test gets created. Those are X and y for the most of the machinelearning models. This is the first time, I used this data structure that was planned for the model from the beginning, even from the last group.  
 
 - Explain the datastrucure here:  
 
-Since I’ve been working with the 65 column data structure, I can say with certainty, that I understood the structure and know how it gets created.  
+Here is an explanation on the data strucure by one of my colleges. Since I’ve been working with the 65 column data structure to do visualizations and whatnot, I can say with certainty, that I understood the structure and know how it gets created.  
 
 ## 2.3.2 Neural Networks
 
 Also to mention is that  I prepared some data together with Hassan, not for the Logistic-Regression-Model but for the CNN we’ve been training.  
 
 - 927ce917  
+
+
+At first it was thought, that we’re going to use an RNN as an unsupervised training method, but we decided to use a CNN instead. That is because of the data structure we’re working with. Since there is, for every bone in every patient, an X Y and Z Euler-Angle, we can put these three values in one RGB pixel. Eventhough it isn’t necessary for a Nural Network to have an Input like this, we thought it would be a nice way of preprocessing the data, without loosing any of the information. In order to achieve something like this, the rotation first need to be normalized and the mapped on a scale from 0 to 1  
+
 - Picture of datastructure RGB  
-
-At first it was thought, that we’re going to use an RNN as an unsupervised training method, but we decided to use a CNN instead. That is because of the Datastructure we’re working with. Since there is, for every bone in every patient, an X Y and Z Euler-Angle, we can put these three values in one RGB pixel. Eventhough it isn’t necessary for a Nural Network to have an Input like this, we thought it would be a nice way of preprocessing the data, without loosing any of the information. In order to achieve something like this, the rotation first need to be normalized and the mapped on a scale from 0 to 1  
-
 
 As it is already described in the picture above, the “width” of the inputdata are the eight bones of the upper body, for 5 different exercises performed by one patient. Therefore one picture is one iteration of all the exercises one Patient has done( AB1, AF1,RF1,AH1…) the arrays shape is (40,100,(3)) Where 40 is 8 bones x 5 exercises and the 100 is the resampled framescount(length of exercise) the third(3) dimension is represented in the picture by the colour at the given pixel. These tensors then get stored in one bigger Tensor, which then gets fed to the CNN.
 
+I worked with Hassan, to get a good ground for the CNN's. The moment we got a somewhat decent model running, we decided, that only one person should contiunue on the subject. That is why, the outcomes you can see here, are not the best, but they are mine!
+
+```concole
+"d:/Hochschule/5_Semester/Orthoeyes/Portfolio/Machine Learining/NN/src/CNN.py"
+Importing patients from: d:\Hochschule\5_Semester\Orthoeyes\Portfolio\Machine Learining\NN\data/Category_1
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 30/30 [00:11<00:00,  2.67it/s]
+Importing patients from: d:\Hochschule\5_Semester\Orthoeyes\Portfolio\Machine Learining\NN\data/Category_2
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 39/39 [00:10<00:00,  3.59it/s]
+Importing patients from: d:\Hochschule\5_Semester\Orthoeyes\Portfolio\Machine Learining\NN\data/Category_3
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 37/37 [00:10<00:00,  3.58it/s]
+train_combinations:  819
+test_combinations:  275
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 275/275 [00:02<00:00, 126.37it/s]
+(275,)
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 819/819 [00:19<00:00, 42.68it/s]
+2020-01-12 12:19:31.812072: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d (Conv2D)              (None, 97, 37, 16)        784
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 48, 18, 16)        0
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 45, 15, 32)        8224
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 22, 7, 32)         0
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 19, 4, 32)         16416
+_________________________________________________________________
+flatten (Flatten)            (None, 2432)              0
+_________________________________________________________________
+dense (Dense)                (None, 32)                77856
+_________________________________________________________________
+dense_1 (Dense)              (None, 3)                 99
+=================================================================
+Total params: 103,379
+Trainable params: 103,379
+Non-trainable params: 0
+_________________________________________________________________
+Train on 819 samples, validate on 275 samples
+Epoch 1/10
+2020-01-12 12:19:35.194058: I tensorflow/core/profiler/lib/profiler_session.cc:184] Profiler session started.
+819/819 [==============================] - 2s 3ms/sample - loss: 0.6006 - accuracy: 0.7888 - val_loss: 0.3144 - val_accuracy: 0.9309
+Epoch 2/10
+819/819 [==============================] - 1s 2ms/sample - loss: 0.4129 - accuracy: 0.8376 - val_loss: 0.2905 - val_accuracy: 0.9200
+Epoch 3/10
+819/819 [==============================] - 2s 2ms/sample - loss: 0.2165 - accuracy: 0.9304 - val_loss: 0.1461 - val_accuracy: 0.9455
+Epoch 4/10
+819/819 [==============================] - 1s 2ms/sample - loss: 0.1013 - accuracy: 0.9597 - val_loss: 0.1298 - val_accuracy: 0.9527
+Epoch 5/10
+819/819 [==============================] - 1s 2ms/sample - loss: 0.0660 - accuracy: 0.9707 - val_loss: 0.3843 - val_accuracy: 0.8873
+Epoch 6/10
+819/819 [==============================] - 1s 2ms/sample - loss: 0.0506 - accuracy: 0.9744 - val_loss: 0.1434 - val_accuracy: 0.9200
+Epoch 7/10
+819/819 [==============================] - 2s 2ms/sample - loss: 0.0448 - accuracy: 0.9756 - val_loss: 0.1129 - val_accuracy: 0.9455
+Epoch 8/10
+819/819 [==============================] - 1s 2ms/sample - loss: 0.0306 - accuracy: 0.9866 - val_loss: 0.1464 - val_accuracy: 0.9164
+Epoch 9/10
+819/819 [==============================] - 1s 2ms/sample - loss: 0.0322 - accuracy: 0.9841 - val_loss: 0.1686 - val_accuracy: 0.9055
+Epoch 10/10
+819/819 [==============================] - 1s 2ms/sample - loss: 0.0209 - accuracy: 0.9976 - val_loss: 0.4133 - val_accuracy: 0.8945
+275/1 - 0s - loss: 0.7360 - accuracy: 0.8945
+0.89454544
+```  
+
+- add NN train_vs_test_acc
+
+As I said, it is not the best possible outcome for a model, but these results let us guess, that there is sufficient informarion in the data given. Now it was in Hassans hands to find the best architecture for the CNN, eventough he often relied on my educated guess on whatever the outcome of a model was good or not. 
 
 
 ## 2.4 Understanding last Groups Work
 
 - described by task 122 partly   
-- Excel sheet with progress  
+
 
 In order to get everybody on the same page with their machine learning skills by week 10, we created a task, as a researcher I want to understand the steps the last group took. Therefore we created a Excel sheet to keep track on progress.   
 
-This task contains multiple subtasks, that have either been completed just to complete the subtask or in order to accomplish something else in the project. Here I will give links to the sections in my portfolio where I completed those tasks. 
+- Excel sheet with progress  
+
+This task contains multiple subtasks, that have either been completed just to complete the subtask or in order to accomplish something else in the project. Here I will give links to the sections in my portfolio where I completed those tasks.  
+- add links 
 
 ## 2.5 Jupyter Notebooks on Machine Learing
 
@@ -118,11 +272,13 @@ Since our Dataset was quite different than for example the MNIST or other exampl
 
 - Master branch contains all blend files  
 
-Before any sort of a model could be created, it was upon me, to figure out what the data actually means. With some information from the LUMC and a paper describing the WU standard for Euler Angles in bone structures, we came up with a factsheet to describe which columns is responsible for which bone and in this bone which axes.  
+Before any sort of a model could be created, it was upon me, to figure out what the data actually means. With some information from the LUMC and a paper describing the WU standard for Euler Angles in bone structures, I came up with a factsheet to describe which columns is responsible for which bone and in this bone which axes.  
 
+- factsheet
 - Description of the factsheet:  
 
-Afterwards, the struggle began to find the best “resting position” for the armature(the skeleton). This basically went down through trial and error. I first started with only one side(right side) and if I saw movement that made sense for my eyes I tried to construct the left arm based on the right one.  
+Afterwards, the struggle began to find the best “resting position” for the armature(the skeleton). This basically went down through trial and error. I first started with only one side(right side) and if I saw movement that made sense for my eyes I tried to construct the left arm based on the right one. 
+
 
 
 ## 3.1.2 Refining the Blender Model
@@ -132,14 +288,37 @@ Afterwards, the struggle began to find the best “resting position” for the a
 - Add How to Blend
 
 In the second phase of the refinement, I added functions, to sort the different armatures in the scene, by either their exercise- or patient-group. I also automated the script to load in multiple files at the same time. Basically the script was created to function by the click of one button.  
-- COde to show function  
+```python
+for obj in bpy.data.collections['Result'].objects:
+    if grouping == 'cat':
+        name = obj.name[:4]
+    if grouping == 'pat':
+        name = obj.name[5:10]
+    if name not in col:
+        newCol = bpy.data.collections.new(name)
+        bpy.context.scene.collection.children.link(newCol)
+        col.append(name)
+    bpy.data.collections[name].objects.link(obj)
+    bpy.data.collections['Result'].objects.unlink(obj)    
 
-The user is able to choose which files he/she wants to read in, and by what the user wants to order the different “patients”. After all the animations have been created, one has the possibility to switch into the orthographic view, in order to compare the different “patients” without having any perspective issues.  
+```
+
+The user is able to choose which files he/she wants to read in, and by what the user wants to order the different “patients”.  
+```python
+rotation_mode = 'XYZ'
+grouping = 'cat'
+directory = 'D:\\Hochschule\\5_Semester\\Orthoeyes\\Data\\test-data\\'
+```
+After all the animations have been created, one has the possibility to switch into the orthographic view, in order to compare the different “patients” without having any perspective issues.  
+
+- screenshots in PNG folder
 
 This way of view the “patients” enables the possibility to see the exercises in 2D and 3D but also with and without perspective(with perspective helps to understand the movement, without makes it easy to compare the “patients to eachother”), all this can be done in realtime and full moveability of the camera in the same viewport.  
 
 ## Result:  
-Euler angles were in the way of getting a proper visualization. We also didn’t want to make more assumptions than we needed too. Maybe continued in chapter 
+The Euler angles were in the way of getting a proper visualization. We also didn’t want to make more assumptions than we needed too. The next chapter goes more in depth on what the results were. 
+
+- 3.1.3.2 The Outcome
 
 
 ## 3.1.3 Creating our own Protocol
@@ -150,15 +329,17 @@ Euler angles were in the way of getting a proper visualization. We also didn’t
 
 In order to validate the 3D visualization made in Blender, we either needed to check back with our client at the LUMC and get a verification that the animations are correct. The other possibility was, to create out own exercises, which one of the group members would perform while hooked up to the same Flock of Birds system, that has been use to collect the patientdata we received, at the LUMC.  
 
-To make sure, that the exercises will be performed exactly how I envisioned them beforehand, I created a protocol. This protocol contains hand drawn descriptions of the exercise and also step by step instructions for the “patient”. We didn’t want to rely on filenames and the protocol, we also filmed all the execises that had been performed by our group at the LUMC.
+To make sure, that the exercises will be performed exactly how I envisioned them beforehand, I created a protocol. This protocol contains hand drawn descriptions of the exercise and also step by step instructions for the “patient”. We didn’t want to rely on filenames and the protocol, we also filmed all the execises that had been performed by our group at the LUMC.  
+- Protocol here
 
 ### 3.1.3.2 The Outcome
 
 - Files locally   
 
-Once we visited the LUMC and recorded our own movement data, It was about time to validate the script I created earlier. The first step was, to cut the recorded Video files to the right length and name them with the corresponding filenames of the .CSV – files.  
+Once we visited the LUMC and recorded our own movement data, It was about time to validate the script I created earlier. The first step was, to cut the recorded video files to the right length and name them with the corresponding filenames of the .CSV – files.  
 
 Even though we had a protocol, to keep track in which order the tasks have been performed, it still was wearisome work, because this wasn’t the time for mistakes, since the recording should proof the reliability of the script that was planned to be used to label our dataset. To Accomplish this task I used Adobe Premiere.  
+- filled protocoll scan in 
 
 After hours of trial and error, I came to the conclusion, that I won’t be able to get a proper representation of the data, using Blender. That’s because of the Euler Angles that are used to describe the patients movement. In the Euler Angles nature lays, that the three angles can only describe ONE rotation in 3d space. This only applies, if the three axes are staying in the same order. This being said: X = 34°, Y = 45°,  Z = 180° is different to : Z = 180°, X = 34°, Y = 45°. 
 For whatever reason, this order needed to be switched for different movements in Blender. But I could re the corealation and I didn't want to make any assumptions, because this script was seen as a tool to find errors in the data.

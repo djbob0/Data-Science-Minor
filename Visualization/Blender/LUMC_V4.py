@@ -74,7 +74,6 @@ for filename in os.listdir(directory):
         df_ellebooghoek_l = get_dataframe_from_bodypart(df, 'ellebooghoek', 'l')
 
 
-        print(df_ellebooghoek_r)
         ###### Blender relevant code following
 
         # search for armature in scene and name it ob
