@@ -59,7 +59,6 @@ By the time I was finished with the course, I was more familiar with machine lea
 ## 2.2 First Steps With our Data
 Writing a script to get basic information about the data depending on exercises  
 
-- In Local directory and Getting to know 
 
 After I got to know our data through the experiments in Blender, where at this point I was only able to load in one file at a time, I decided to read some basic information from the data. Instead of only using one file at a time, I wanted to calculate the mean for one axes, the X-axes of the right thorax, for all of the files contained in one given folder. Eventhough the mean of a dataframe can easily be calculated with the df.mean() function, I found this exercise really helpful, because it helped me understand the datastructure and it's dimensions. Also it got me used to working with classes and functions without getting to complicated for the start.
 
@@ -91,8 +90,12 @@ for data in get_data(directory):
     df = data.get_bodypart('thorax', 'r')
     print(get_mean(df, 'thorax_r_x'))
 ```
-In this script there's only used two functions: get_data and get_mean.  
-Get_data makes use of the parser class, to get back a list of all the dataframes in the directory. get_mean calculates the mean of one column in a dataframe.  
+*This code was copied out of `test.py` in [2.2_getting_to_know](2.Learning_on_Machine_Learning/2.2_getting_to_know)*   
+<br>
+<br>
+In this script there's only used two functions: `get_data` and `get_mean` . 
+`get_data` makes use of the parser class, to get back a list of all the dataframes in the directory. `get_mean` calculates the mean of one column in a dataframe.   
+
 At the end of the script I simply loop trough the whole datalist to get all the means of all the files. The printout isn't really pretty, but since it was more a proof of concept it worked for me:  
 ```
   python3 d:/Hochschule/5_Semester/Orthoeyes/Portfolio/Machine Learining/getting_to_know/test.py  
@@ -109,7 +112,6 @@ At the end of the script I simply loop trough the whole datalist to get all the 
 ## 2.3 Data Preprocessing
 
 ## 2.3.1 Logistic Regression
-- what sprint?  
 
 
 At this point of time, I already worked with our data quite a bit, I plotted some easy graphs, I created my own anymations in Blender, and I could load in different files at once.  
@@ -148,8 +150,9 @@ print('ORTHO: Prepairing Dataset')
 controller = DataController(config)
 controller.run()
 ```
+*This code was copied out of `main_raphi.py` in [src](2.Learning_on_Machine_Learning/src)*   
 
-The moment I got this script working, our main structure in the masterbranch changed again, so I continued working with the code that was already supplied by my colleges. In src2/main. A np_combination_train and np_combination_test gets created. Those are X and y for the most of the machinelearning models. This is the first time, I used this data structure that was planned for the model from the beginning, even from the last group.  
+The moment I got this script working, our main structure in the masterbranch changed again, so I continued working with the code that was already supplied by my colleges. In [src2/main](2.Learning_on_Machine_Learning/src2/main). A `np_combination_train` and `np_combination_test` gets created. Those are `X` and `y` for the most of the machinelearning models. This is the first time, I used this data structure that was planned for the model from the beginning, even from the last group.  
 
 - Explain the datastrucure here:  
 
@@ -159,7 +162,7 @@ Here is an explanation on the data strucure by one of my colleges. Since I’ve 
 
 Also to mention is that  I prepared some data together with Hassan, not for the Logistic-Regression-Model but for the CNN we’ve been training.  
 
-- 927ce917  
+- *All the code can be found in [2.3.2_NN/src](2.Learning_on_Machine_Learning/2.3.2_NN/src) where [CNN.py](2.Learning_on_Machine_Learning/2.3.2_NN/src/main) is the main.*   
 
 
 At first it was thought, that we’re going to use an RNN as an unsupervised training method, but we decided to use a CNN instead. That is because of the data structure we’re working with. Since there is, for every bone in every patient, an X Y and Z Euler-Angle, we can put these three values in one RGB pixel. Eventhough it isn’t necessary for a Nural Network to have an Input like this, we thought it would be a nice way of preprocessing the data, without loosing any of the information. In order to achieve something like this, the rotation first need to be normalized and the mapped on a scale from 0 to 1  
@@ -234,9 +237,9 @@ Epoch 10/10
 0.89454544
 ```  
 
-- add NN train_vs_test_acc
+![train_acc_vs_val_acc](2.Learning_on_Machine_Learning/2.3.2_NN/train_vs_test_acc.png)
 
-As I said, it is not the best possible outcome for a model, but these results let us guess, that there is sufficient informarion in the data given. Now it was in Hassans hands to find the best architecture for the CNN, eventough he often relied on my educated guess on whatever the outcome of a model was good or not. 
+As I said, it is not the best possible outcome for a model(propably overfitting after epoch 3 because the layers in the CNN are too big), but these results let us guess, that there is sufficient information in the data to do classification. Now it was in Hassans hands to find the best architecture for the CNN, eventough he often relied on my educated guess on whatever the outcome of a model was good or not. 
 
 
 ## 2.4 Understanding last Groups Work
@@ -246,10 +249,11 @@ As I said, it is not the best possible outcome for a model, but these results le
 
 In order to get everybody on the same page with their machine learning skills by week 10, we created a task, as a researcher I want to understand the steps the last group took. Therefore we created a Excel sheet to keep track on progress.   
 
-- Excel sheet with progress  
+![ML_progress](2.Learning_on_Machine_Learning\2.4_understanding_last_group\ML_progress.png)
+*[MachineLearning_progress.xlsx](2.Learning_on_Machine_Learning\2.4_understanding_last_group\MachineLearning_progress.xlsx)*
 
 This task contains multiple subtasks, that have either been completed just to complete the subtask or in order to accomplish something else in the project. Here I will give links to the sections in my portfolio where I completed those tasks.  
-- add links 
+- `add links` 
 
 ## 2.5 Jupyter Notebooks on Machine Learing
 
@@ -271,20 +275,19 @@ Since our Dataset was quite different than for example the MNIST or other exampl
 
 - Master branch contains all blend files  
 
-Before any sort of a model could be created, it was upon me, to figure out what the data actually means. With some information from the LUMC and a paper describing the WU standard for Euler Angles in bone structures, I came up with a factsheet to describe which columns is responsible for which bone and in this bone which axes.  
+Before any sort of a model could be created, it was upon me, to figure out what the data actually means. With some information from the LUMC and a paper describing the WU standard for Euler Angles in bone structures, I came up with a [factsheet](3.Visualization\3.1_Blender\Overview_Axes_LUMCvsWU.pdf) to describe which columns is responsible for which bone and in this bone which axes.  
 
-- factsheet
-- Description of the factsheet:  
+
+![factsheet](3.Visualization\3.1_Blender\Overview_Axes_LUMCvsWU.png)
+*The left side of the `factsheet` is the labeling standart the LUMC is using, which is based on the WU standart. On the left side the axes order goes from `top` to `bottom`, on the right side a better illustration, but with different axes names can be seen.*
 
 Afterwards, the struggle began to find the best “resting position” for the armature(the skeleton). This basically went down through trial and error. I first started with only one side(right side) and if I saw movement that made sense for my eyes I tried to construct the left arm based on the right one. 
-
+![first_armature](3.Visualization\3.1_Blender\png\blender_first_armature.PNG)
 
 
 ## 3.1.2 Refining the Blender Model
 
-- Commit in task  
 - Add Blender Screenshots here  
-- Add How to Blend
 
 In the second phase of the refinement, I added functions, to sort the different armatures in the scene, by either their exercise- or patient-group. I also automated the script to load in multiple files at the same time. Basically the script was created to function by the click of one button.  
 ```python
@@ -301,6 +304,8 @@ for obj in bpy.data.collections['Result'].objects:
     bpy.data.collections['Result'].objects.unlink(obj)    
 
 ```
+- I created a [instructions_how_to_blender](3.Visualization\3.1_Blender\instructions_how_to_blender.pdf) so that every group member could make use out of my script  
+ 
 
 The user is able to choose which files he/she wants to read in, and by what the user wants to order the different “patients”.  
 ```python
@@ -309,15 +314,15 @@ grouping = 'cat'
 directory = 'D:\\Hochschule\\5_Semester\\Orthoeyes\\Data\\test-data\\'
 ```
 After all the animations have been created, one has the possibility to switch into the orthographic view, in order to compare the different “patients” without having any perspective issues.  
-
-- screenshots in PNG folder
-
+<br>
+*orthographic view*
+![ortho_view](3.Visualization\3.1_Blender\png\blender_ortho.PNG)  
+*perspective view*
+![perspective_view](3.Visualization\3.1_Blender\png\blender_perspective.PNG)
 This way of view the “patients” enables the possibility to see the exercises in 2D and 3D but also with and without perspective(with perspective helps to understand the movement, without makes it easy to compare the “patients to eachother”), all this can be done in realtime and full moveability of the camera in the same viewport.  
 
 ## Result:  
-The Euler angles were in the way of getting a proper visualization. We also didn’t want to make more assumptions than we needed too. The next chapter goes more in depth on what the results were. 
-
-- 3.1.3.2 The Outcome
+The Euler angles were in the way of getting a proper visualization. We also didn’t want to make more assumptions than we needed too. The [outcome](#3132-The-Outcome) of the next chapter goes more in depth on what the results were. 
 
 
 ## 3.1.3 Creating our own Protocol
@@ -328,8 +333,10 @@ The Euler angles were in the way of getting a proper visualization. We also didn
 
 In order to validate the 3D visualization made in Blender, we either needed to check back with our client at the LUMC and get a verification that the animations are correct. The other possibility was, to create out own exercises, which one of the group members would perform while hooked up to the same Flock of Birds system, that has been use to collect the patientdata we received, at the LUMC.  
 
-To make sure, that the exercises will be performed exactly how I envisioned them beforehand, I created a protocol. This protocol contains hand drawn descriptions of the exercise and also step by step instructions for the “patient”. We didn’t want to rely on filenames and the protocol, we also filmed all the execises that had been performed by our group at the LUMC.  
-- Protocol here
+To make sure, that the exercises will be performed exactly how I envisioned them beforehand, I created a [protocol](4.Research\PNG\LUMC_protocol_empty.pdf). This protocol contains hand drawn descriptions of the exercise and also step by step instructions for the “patient”. We didn’t want to rely on filenames and the protocol, we also filmed all the execises that had been performed by our group at the LUMC.
+
+![protocol1](4.Research\PNG\LUMC_protocol_empty.png)
+![protocol2](4.Research\PNG\LUMC_protocol_empty2.png)
 
 ### 3.1.3.2 The Outcome
 
@@ -338,16 +345,16 @@ To make sure, that the exercises will be performed exactly how I envisioned them
 Once we visited the LUMC and recorded our own movement data, It was about time to validate the script I created earlier. The first step was, to cut the recorded video files to the right length and name them with the corresponding filenames of the .CSV – files.  
 
 Even though we had a protocol, to keep track in which order the tasks have been performed, it still was wearisome work, because this wasn’t the time for mistakes, since the recording should proof the reliability of the script that was planned to be used to label our dataset. To Accomplish this task I used Adobe Premiere.  
+
 - filled protocoll scan in 
 
-After hours of trial and error, I came to the conclusion, that I won’t be able to get a proper representation of the data, using Blender. That’s because of the Euler Angles that are used to describe the patients movement. In the Euler Angles nature lays, that the three angles can only describe ONE rotation in 3d space. This only applies, if the three axes are staying in the same order. This being said: X = 34°, Y = 45°,  Z = 180° is different to : Z = 180°, X = 34°, Y = 45°. 
+After hours of trial and error, I came to the conclusion, that I won’t be able to get a proper representation of the data, using Blender. That’s because of the Euler Angles that are used to describe the patients movement. In the Euler Angles nature lays, that the three angles can only describe ONE rotation in 3d space. This only applies, if the three axes are staying in the same order. This being said: `X` = 34°, `Y` = 45°,  `Z` = 180° is different to : `Z` = 180°, `X` = 34°, `Y` = 45°. 
 For whatever reason, this order needed to be switched for different movements in Blender. But I could re the corealation and I didn't want to make any assumptions, because this script was seen as a tool to find errors in the data.
 
 ## 3.2 Matplotlib
 
 ## 3.2.1 Plotting the CSV's in 2D
-- python\src2\fd\visualize.py  
--  PG1-3 vs 4  
+- code is in [*visualize.py*](2.Learning_on_Machine_Learning\src2\fd\visualize.py) 
 -  Commit 42948dc5  
 
 After I made my first contact with the data in Blender and some minor experiments with Machinelearning, I started creating some scatterplots, to further understand the data.  
@@ -358,15 +365,16 @@ from fd.visualize import Visualise_patient
 Visualise_patient(patient_group, patientnr=[1],right = True, left = False, linelabel= True)
 Visualise_patient.plot()
 ```
+*This code was copied out of `main.py` in [src2](2.Learning_on_Machine_Learning/src2)*
 
-In src2\main.py a visualization gets shown, after the training and test data gets created. This visualization shows the data exactly how it gets handed to a machine learning model.  
+In src2[*/main.py*](2.Learning_on_Machine_Learning/src2/main.py) a visualization gets shown, after the training and test data gets created. This visualization shows the data exactly how it gets handed to a machine learning model.  
 
-- PNG CSV 2D
+![csv_2D](3.Visualization\PNG\CSV_2D.png)
 
 
 This graph was more a proof of concept, than an actual tool for visualization. This came, when I integrated the Visualization class into the main branch. At this point of the project we realized that patientgroup 4 we received from the LUMC wasn’t what we expected it to be. The values in pg4 were completely different, then the ones for pg 1-3. 
 
-- master2.0  tools/visualis.py
+
 - screenshot of configurations for the Visualize class  
 
 In order to contribute to the project, I created a class Visualize in the master branch, that anybody could make use of, just by turning it on in the config and by changing a few parameters in the definition of the class. 
@@ -378,14 +386,17 @@ if config.show_visualization:
     vv.visualise(mode='exercise')
     vv.visualise(mode = 'idle') 
 ```
+*This code was copied out of `main.py` in [src](3.Visualization\3.2_Master2.0Branch\src\main.py)*  
+  
+<br>  
 
 The user can choose which Petientgroups, out of these groups which patients, what exercises and what bones should be displayed in the graphs. If none of the parameters gets set, the script will grab all the information out of the config. Also the length of the exercise doesn’t matter, since the script gets all it’s information out of the config.  
+- code is in [*visualiseraw.py*](3.Visualization\3.2_Master2.0Branch\src\tools\visualiseraw.py) 
+  
+![visualize_exercise](3.Visualization\PNG\visualize_exercise.png)
+*The visualize_exercise function compares different exercises between Patientgroups and patients and bones.*
 
-- visualize exercise  
-
-The visualize_exercise function compares different exercises between Patientgroups and patients and bones.
-
-- visualize idle  
+![visualize_idle](3.Visualization\PNG\visualize_idle.png) 
 
 The visualize_idle function was created to help validate Hassans script to remove the idle at the end and the beginning of every exercise. In this graph one patients exercise gets it's own subgraph, keep in mind there are most of the times two itterations of every exercise, thats why two line are plotted in the subplot. Therefore the two line have a different color, just as the responding "idle" lines.
 
