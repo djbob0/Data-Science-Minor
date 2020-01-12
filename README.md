@@ -22,8 +22,8 @@ This is the personal portfolio for The Data Science Minor at THUAS by Raphael Pi
     - [3.1.3 Creating our own Protocol](#313-Creating-our-own-Protocol)
       - [3.1.3.1 The Protocol](#3131-The-Protocol)
       - [3.1.3.2 The Outcome](#3132-The-Outcome)
-  - [3.2 Matplotlib](#32-Matplotplib)
-    - [3.2.1 Plotting the CSV's in 2D](#321-Plotting-the-Data-in-2D)
+  - [3.2 Matplotlib](#32-Matplotlib)
+    - [3.2.1 Plotting the CSV's in 2D](#321-Plotting-the-CSV's-in-2D)
     - [3.2.2 Plotting RAW and CSV files](#3.2.2-Plotting-RAW-and-CSV-files)
   - [3.3 Checking for Flippes Sensors](#33-Checking-for-Flippes-Sensors)
   - [3.4 Poster for Zoetemeer](#34-Poster-for-Zoetemeer)
@@ -353,43 +353,108 @@ For whatever reason, this order needed to be switched for different movements in
 
 After I made my first contact with the data in Blender and some minor experiments with Machinelearning, I started creating some scatterplots, to further understand the data.  
 
-In src2\main.py a visualization gets shown, after the training and test data gets created. This visualization shows the data exactly how it gets handed to a Machinelearnign model.  
+```python
+from fd.visualize import Visualise_patient
+
+Visualise_patient(patient_group, patientnr=[1],right = True, left = False, linelabel= True)
+Visualise_patient.plot()
+```
+
+In src2\main.py a visualization gets shown, after the training and test data gets created. This visualization shows the data exactly how it gets handed to a machine learning model.  
+
+- PNG CSV 2D
+
 
 This graph was more a proof of concept, than an actual tool for visualization. This came, when I integrated the Visualization class into the main branch. At this point of the project we realized that patientgroup 4 we received from the LUMC wasn’t what we expected it to be. The values in pg4 were completely different, then the ones for pg 1-3. 
-  
 
-.  
-
-- master2.0  
+- master2.0  tools/visualis.py
 - screenshot of configurations for the Visualize class  
 
 In order to contribute to the project, I created a class Visualize in the master branch, that anybody could make use of, just by turning it on in the config and by changing a few parameters in the definition of the class. 
-The user can choose which Petientgroups, out of these groups which patients, what exercises and what bones should be displayed in the graphs. If none of the parameters gets set, the script will grab all the information out of the config. Also the length of the exercise doesn’t matter, since the script gets all it’s information out of the config. 
-I created a visualize_exercise function to compare different exercises between Patientgroups and patients and bones.
+
+```python
+if config.show_visualization:
+    vv = Visualize(patient_groups,catagory = [1,2,3], patients=[1,2,3,4,5,6,7,8], exercises=['RF','AF'], bones=["thorax_r_x_ext", "thorax_r_y_ax", "thorax_r_z_lat",
+                      "clavicula_r_y_pro", "clavicula_r_z_ele", "clavicula_r_x_ax"])
+    vv.visualise(mode='exercise')
+    vv.visualise(mode = 'idle') 
+```
+
+The user can choose which Petientgroups, out of these groups which patients, what exercises and what bones should be displayed in the graphs. If none of the parameters gets set, the script will grab all the information out of the config. Also the length of the exercise doesn’t matter, since the script gets all it’s information out of the config.  
+
+- visualize exercise  
+
+The visualize_exercise function compares different exercises between Patientgroups and patients and bones.
+
+- visualize idle  
+
+The visualize_idle function was created to help validate Hassans script to remove the idle at the end and the beginning of every exercise. In this graph one patients exercise gets it's own subgraph, keep in mind there are most of the times two itterations of every exercise, thats why two line are plotted in the subplot. Therefore the two line have a different color, just as the responding "idle" lines.
 
 
 ## 3.2.2 Plotting RAW and CSV files
 
-- Branch Raw visualization
-- GIF of RAW visualization  
+- master 2.0 tools/viusalizeRAW 
 
-All the efforts to get a real 3D visualization in Blender didn’t bring any good results and just let us continue guessing. Since Assumptions aren’t any good in machine learing, we needed a visualization that we could trust. Therefore eddy wrote a script, based on the last groups work, to visualize the RAW files we received from the LUMC. I used this as a base for my script. 
+All the efforts to get a real 3D visualization in Blender didn’t bring any good results and just let us continue guessing. Since Assumptions aren’t any good in machine learing, we needed a visualization that we could trust. Therefore Eddie wrote a script, based on the last groups work, to visualize the RAW files we received from the LUMC. I used this as a base for my script. 
+
+- GIF of visualization
+
+This script was most and foremost created to understand fully what exercises contain which movent in Euler Angles. Therefore replacing the effort that was made to create a 3D animation in Blender.  
+This script also served as the base for work that was done by Lennart to find wrongly named exercises in the files. 
 
 
 ## 3.3 Checking for Flippes Sensors
 - answer in issue still
 
+For anomaly detection we wanted to make sure, that the way the sensores are attached to the patients doesn't mess with the data. Therefore we did one set of exercises at the LUMC with a flipped sensor on the right humerus. 
+
+- raphi flipped vs raphi 
+
+Upon visual inspection there is no significant difference between the first and the second recording of Raphaels normal exercises.(keeping in mind, that the sensor was flipped on the Humerus alone)
+
 ## 3.4 Poster for Zoetemeer
-- poster in cloud 
+
+Our group was asked to show our project at the campus at Zoetemeer, for this event I designed a poster. 
+- poster v7  
 
 # 4. Research
 
 ## 4.1 Answering the Subquestions
+At the beginning of the project, we had some lectures about research, in these lectures we learned how to come up with a researchquestion and how we can asnwer it by using more simplyfied subquestions. 
+Since we didn't have much domain knowledge in the beginning, it made a lot of sense to start working on the library and field questions.  
+
+- subquestions.png
+
+It was everybodys task to pick at least on of the question, find a researchpaper that describs the problem or even answers it. These Results should be saved somewhere, so that the other group members have acces to the summaries. 
+
+- link to excel sheet  
+
 
 ## 4.2 Writing a paper
 
+
+
 ## 4.2.1 Starting Structure
+I was the first person in the group who started working on the research paper. Thats why one of my first tasks was, to understand what a researchpaper actually is and how one goes about writing one. 
+
+- paper here  
 
 
+In Paper_guide_by_Raphi.docx is a brief summary of "how to write a good paper" with some more in depth explanation of for example difficult terms. 
+
+I also came up with a general guide on how the writing process should go about. 
+
+```
+General Strategy:
+-Gather all the information we need for the paper. 
+-Start with the conclusion and work from there to the top. 
+-Planned are 5 iteration in order to get to a finished state of the paper
+1. structure
+2. dropping anything in the paper(start writing sentences)
+3. write actual sentences and add figures
+4. check references etc.
+5. finished paper, check typos
+```
+For the first point: "1. structure" I started with a very simple version and improved it over multiple itteration. These files can be found  `here`.
 # 5. Presentations
 # 6. Conclusion and Reflection
