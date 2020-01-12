@@ -33,7 +33,7 @@ more text with two line breaks between.
 
 This paragraph has some `variable` inline code.
 
-```html
+```html 
 <p>A paragraph example</p>
 ```
 ```javascript

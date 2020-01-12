@@ -25,7 +25,7 @@ This is the personal portfolio for The Data Science Minor at THUAS by Raphael Pi
   - [3.2 Matplotlib](#32-Matplotlib)
     - [3.2.1 Plotting the CSV's in 2D](#321-Plotting-the-CSV's-in-2D)
     - [3.2.2 Plotting RAW and CSV files](#3.2.2-Plotting-RAW-and-CSV-files)
-  - [3.3 Checking for Flippes Sensors](#33-Checking-for-Flippes-Sensors)
+  - [3.3 Checking for Flipped Sensors](#33-Checking-for-Flipped-Sensors)
   - [3.4 Poster for Zoetemeer](#34-Poster-for-Zoetemeer)
 - [4. Research](#4-Research)
   - [4.1 Answering the Subquestions](#41-Answering-the-Subquestions)
@@ -41,22 +41,21 @@ In this chapter my personal development in Machine Learing gets discussed. <br>
 Which courses and what actions did I take to improve on my Machine Leaning skills.
 ## 2.1 DataCamp and Udemy Courses 
 ## 2.1.1 DataCamp
-- Screenshot of completed courses  
 
 In the first weeks of our project, we planned one day a week for the Datacamp courses. Since I already had a small coding project in Python, which was self-thought, the year before, I already knew the basic syntax of the language. Though, having a structured course layed out, which shows one the proper techniques, which are used in the Machinelearning field.  
 
-![completedcourses](https://github.com/djbob0/Data-Science-Minor/blob/master/Machine%20Learining/Datacamp/completed%20courses1.PNG)  
+![completedcourses](2.Learning_on_Machine_Learning/2.1.1_Datacamp/completed_courses1.PNG)  
 
 From week to week I felt more secure in the language, and I was able to make use of the API’s that got introduced to us in the course. Especially working in Data Science shows the beauty of an object orientated coding language like python. With the right API’s like Numpy and SKLearn it’s possible to attack unimaginable big problems with just a few lines of code. 
 
 ## 2.1.2 Udemy
 I was able to score a good deal on one of the Udemy courses on Neural Networks with Tensorflow 2.0. Instead of over 100 Euros it was discounted to around 15 Euros. That's why I thought it wouldn't be a bad idea to improve my ML skills through a different course than the one at THUAS. I didn't want to get better with NN's for nothing, at this point of the project we wanted to start with CNN's, which this course gave a good introduction to.  
 
-- Udemy(Udemy_tenorflow) picture  
+![udemycomplete](2.Learning_on_Machine_Learning/2.1.2_Udemy/Udemy_tensorflow2.0.PNG)
 
 For what it's worth, I was able to work through 67% of the course, which was enough to get a good understanding on what neural networks actually are and how they interprete the data we supply.  
 By the time I was finished with the course, I was more familiar with machine learning in general. I learned a lot about Model in genral, objective functions, optimazation algorithms, Tensorflow, under- and overfitting, early stopping and of course preprocessing of the data in general.  
-- Notes Udemy  
+- [Notes Udemy](2.Learning_on_Machine_Learning/2.1.2_Udemy/Notes_Udemy.pdf)  
 ## 2.2 First Steps With our Data
 Writing a script to get basic information about the data depending on exercises  
 
@@ -403,7 +402,7 @@ This script was most and foremost created to understand fully what exercises con
 This script also served as the base for work that was done by Lennart to find wrongly named exercises in the files. 
 
 
-## 3.3 Checking for Flippes Sensors
+## 3.3 Checking for Flipped Sensors
 - answer in issue still
 
 For anomaly detection we wanted to make sure, that the way the sensores are attached to the patients doesn't mess with the data. Therefore we did one set of exercises at the LUMC with a flipped sensor on the right humerus. 
