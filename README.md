@@ -152,7 +152,7 @@ controller.run()
 ```
 *This code was copied out of `main_raphi.py` in [src](2.Learning_on_Machine_Learning/src)*   
 
-The moment I got this script working, our main structure in the masterbranch changed again, so I continued working with the code that was already supplied by my colleges. In [src2/main](2.Learning_on_Machine_Learning/src2/main). A `np_combination_train` and `np_combination_test` gets created. Those are `X` and `y` for the most of the machinelearning models. This is the first time, I used this data structure that was planned for the model from the beginning, even from the last group.  
+The moment I got this script working, our main structure in the masterbranch changed again, so I continued working with the code that was already supplied by my colleges. In [src2/main](2.Learning_on_Machine_Learning/src2/main.py). A `np_combination_train` and `np_combination_test` gets created. Those are `X` and `y` for the most of the machinelearning models. This is the first time, I used this data structure that was planned for the model from the beginning, even from the last group.  
 
 - Explain the datastrucure here:  
 
@@ -249,7 +249,8 @@ As I said, it is not the best possible outcome for a model(propably overfitting 
 
 In order to get everybody on the same page with their machine learning skills by week 10, we created a task, as a researcher I want to understand the steps the last group took. Therefore we created a Excel sheet to keep track on progress.   
 
-![ML_progress](2.Learning_on_Machine_Learning\2.4_understanding_last_group\ML_progress.png)
+![ML_progress](2.Learning_on_Machine_Learning\2.4_understanding_last_group\ML_progress.png)  
+
 *[MachineLearning_progress.xlsx](2.Learning_on_Machine_Learning\2.4_understanding_last_group\MachineLearning_progress.xlsx)*
 
 This task contains multiple subtasks, that have either been completed just to complete the subtask or in order to accomplish something else in the project. Here I will give links to the sections in my portfolio where I completed those tasks.  
@@ -275,10 +276,10 @@ Since our Dataset was quite different than for example the MNIST or other exampl
 
 - Master branch contains all blend files  
 
-Before any sort of a model could be created, it was upon me, to figure out what the data actually means. With some information from the LUMC and a paper describing the WU standard for Euler Angles in bone structures, I came up with a [factsheet](3.Visualization\3.1_Blender\Overview_Axes_LUMCvsWU.pdf) to describe which columns is responsible for which bone and in this bone which axes.  
+Before any sort of a model could be created, it was upon me, to figure out what the data actually means. With some information from the LUMC and a paper describing the WU standard for Euler Angles in bone structures, I came up with a [factsheet](3.Visualization/3.1_Blender/Overview_Axes_LUMCvsWU.pdf) to describe which columns is responsible for which bone and in this bone which axes.  
 
 
-![factsheet](3.Visualization\3.1_Blender\Overview_Axes_LUMCvsWU.png)
+![factsheet](3.Visualization/3.1_Blender/Overview_Axes_LUMCvsWU.png)
 *The left side of the `factsheet` is the labeling standart the LUMC is using, which is based on the WU standart. On the left side the axes order goes from `top` to `bottom`, on the right side a better illustration, but with different axes names can be seen.*
 
 Afterwards, the struggle began to find the best “resting position” for the armature(the skeleton). This basically went down through trial and error. I first started with only one side(right side) and if I saw movement that made sense for my eyes I tried to construct the left arm based on the right one. 
