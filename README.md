@@ -160,20 +160,21 @@ Here is an explanation on the data strucure by one of my colleges. Since I’ve 
 
 ## 2.3.2 Neural Networks
 
-Also to mention is that  I prepared some data together with Hassan, not for the Logistic-Regression-Model but for the CNN we’ve been training.  
+Also to mention is that  I prepared some data together with Hassan (both working on one Laptop, taking turns every now and then), not for the Logistic-Regression-Model but for the CNN we’ve been training.  
 
-- *All the code can be found in [2.3.2_NN/src](2.Learning_on_Machine_Learning/2.3.2_NN/src) where [CNN.py](2.Learning_on_Machine_Learning/2.3.2_NN/src/main) is the main.*   
+- *All the code can be found in [2.3.2_NN/src](2.Learning_on_Machine_Learning/2.3.2_NN/src) where [CNN.py](2.Learning_on_Machine_Learning/2.3.2_NN/src/CNN.py) is the main.*   
 
 
-At first it was thought, that we’re going to use an RNN as an unsupervised training method, but we decided to use a CNN instead. That is because of the data structure we’re working with. Since there is, for every bone in every patient, an X Y and Z Euler-Angle, we can put these three values in one RGB pixel. Eventhough it isn’t necessary for a Nural Network to have an Input like this, we thought it would be a nice way of preprocessing the data, without loosing any of the information. In order to achieve something like this, the rotation first need to be normalized and the mapped on a scale from 0 to 1  
+At first it was thought, that we’re going to use an RNN as an unsupervised training method, but we decided to use a CNN instead. That is because of the data structure we’re working with. Since there is, for every bone in every patient, an X Y and Z Euler-Angle, we can put these three values in one RGB pixel. Eventhough it isn’t necessary for a Nural Network to have an input like this, we thought it would be a nice way of preprocessing the data, without loosing any of the information. In order to achieve something like this, the rotation first need to be normalized and the mapped on a scale from 0 to 1.  
+## This is a visual representation of the inputdata for the CNN
+![NN_input](2.Learning_on_Machine_Learning/2.3.2_NN/NN_input_data.png)  
+*Every column is a bones combined X,Y,Z, where 8 bones (8 columns) are one exercise of one patient. The rows are the length(frames) of one exercise. Given the fact that one patient did 5 exercises over a resampled length of 40 frames: this picture is (8*5)px x 40px. 
 
-- Picture of datastructure RGB  
-
-As it is already described in the picture above, the “width” of the inputdata are the eight bones of the upper body, for 5 different exercises performed by one patient. Therefore one picture is one iteration of all the exercises one Patient has done( AB1, AF1,RF1,AH1…) the arrays shape is (40,100,(3)) Where 40 is 8 bones x 5 exercises and the 100 is the resampled framescount(length of exercise) the third(3) dimension is represented in the picture by the colour at the given pixel. These tensors then get stored in one bigger Tensor, which then gets fed to the CNN.
+As it is already described in the picture above, the “width” of the inputdata are the eight bones of the upper body, for 5 different exercises performed by one patient. Therefore one picture is one iteration of all the exercises one Patient has done( AB1, AF1,RF1,AH1…) the arrays shape is (40,100,(3)) Where 40 is 8 bones * 5 exercises and the 100 is the resampled framecount(length of exercise) the third(3) dimension is represented in the picture by the colour at the given pixel. These tensors then get stored in one bigger Tensor, which then gets fed to the CNN.
 
 I worked with Hassan, to get a good ground for the CNN's. The moment we got a somewhat decent model running, we decided, that only one person should contiunue on the subject. That is why, the outcomes you can see here, are not the best, but they are mine!
 
-```concole
+```console
 "d:/Hochschule/5_Semester/Orthoeyes/Portfolio/Machine Learining/NN/src/CNN.py"
 Importing patients from: d:\Hochschule\5_Semester\Orthoeyes\Portfolio\Machine Learining\NN\data/Category_1
 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 30/30 [00:11<00:00,  2.67it/s]
@@ -239,7 +240,13 @@ Epoch 10/10
 
 ![train_acc_vs_val_acc](2.Learning_on_Machine_Learning/2.3.2_NN/train_vs_test_acc.png)
 
-As I said, it is not the best possible outcome for a model(propably overfitting after epoch 3 because the layers in the CNN are too big), but these results let us guess, that there is sufficient information in the data to do classification. Now it was in Hassans hands to find the best architecture for the CNN, eventough he often relied on my educated guess on whatever the outcome of a model was good or not. 
+## Evaluation 
+The graph shows the accuracy of the train and test set, in the printout the loss of the train and test set can be seen. By looking at the graph one can see, that the test and train set start to stray apart from each other at epoch 3. In loss for both sets is still going down until epoch 7. But in general you could say, that the model is overfitting, especially after epoch 3. This is beacuase of the size of the layers in the model and the fact, that we haven't cleaned the data properly at this point(so there's bias in some patientgroups). Also it might be a problem, that we're feeding all the patients exercises at once. And it needs to be adressed, that we ( Hassan and I) only used 3 out of our 4 patientgroups, because of problems with the dataset.
+
+
+# TODO explain the printout of  (propably overfitting after epoch 3 because the layers in the CNN are too big) also it was not splitted exercises and execises glued together, only 1-3 PG atm
+
+As I said, it is not the best possible outcome for a model, but these results let us guess, that there is sufficient information in the data to do classification. Now it was in Hassans hands to find the best architecture for the CNN, eventough he often relied on my educated guess on whatever the outcome of a model was good or not. 
 
 
 ## 2.4 Understanding last Groups Work
@@ -249,9 +256,9 @@ As I said, it is not the best possible outcome for a model(propably overfitting 
 
 In order to get everybody on the same page with their machine learning skills by week 10, we created a task, as a researcher I want to understand the steps the last group took. Therefore we created a Excel sheet to keep track on progress.   
 
-![ML_progress](2.Learning_on_Machine_Learning\2.4_understanding_last_group\ML_progress.png)  
+![ML_progress](2.Learning_on_Machine_Learning/2.4_understanding_last_group/ML_progress.png)  
 
-*[MachineLearning_progress.xlsx](2.Learning_on_Machine_Learning\2.4_understanding_last_group\MachineLearning_progress.xlsx)*
+*[MachineLearning_progress.xlsx](2.Learning_on_Machine_Learning/2.4_understanding_last_group/MachineLearning_progress.xlsx)*
 
 This task contains multiple subtasks, that have either been completed just to complete the subtask or in order to accomplish something else in the project. Here I will give links to the sections in my portfolio where I completed those tasks.  
 - `add links` 
@@ -279,11 +286,12 @@ Since our Dataset was quite different than for example the MNIST or other exampl
 Before any sort of a model could be created, it was upon me, to figure out what the data actually means. With some information from the LUMC and a paper describing the WU standard for Euler Angles in bone structures, I came up with a [factsheet](3.Visualization/3.1_Blender/Overview_Axes_LUMCvsWU.pdf) to describe which columns is responsible for which bone and in this bone which axes.  
 
 
-![factsheet](3.Visualization/3.1_Blender/Overview_Axes_LUMCvsWU.png)
+![factsheet](3.Visualization/3.1_Blender/Overview_Axes_LUMCvsWU.png)  
+
 *The left side of the `factsheet` is the labeling standart the LUMC is using, which is based on the WU standart. On the left side the axes order goes from `top` to `bottom`, on the right side a better illustration, but with different axes names can be seen.*
 
 Afterwards, the struggle began to find the best “resting position” for the armature(the skeleton). This basically went down through trial and error. I first started with only one side(right side) and if I saw movement that made sense for my eyes I tried to construct the left arm based on the right one. 
-![first_armature](3.Visualization\3.1_Blender\png\blender_first_armature.PNG)
+![first_armature](3.Visualization/3.1_Blender/png/blender_first_armature.PNG)
 
 
 ## 3.1.2 Refining the Blender Model
@@ -305,7 +313,7 @@ for obj in bpy.data.collections['Result'].objects:
     bpy.data.collections['Result'].objects.unlink(obj)    
 
 ```
-- I created a [instructions_how_to_blender](3.Visualization\3.1_Blender\instructions_how_to_blender.pdf) so that every group member could make use out of my script  
+- I created a [instructions_how_to_blender](3.Visualization/3.1_Blender/instructions_how_to_blender.pdf) so that every group member could make use out of my script  
  
 
 The user is able to choose which files he/she wants to read in, and by what the user wants to order the different “patients”.  
@@ -317,9 +325,9 @@ directory = 'D:\\Hochschule\\5_Semester\\Orthoeyes\\Data\\test-data\\'
 After all the animations have been created, one has the possibility to switch into the orthographic view, in order to compare the different “patients” without having any perspective issues.  
 <br>
 *orthographic view*
-![ortho_view](3.Visualization\3.1_Blender\png\blender_ortho.PNG)  
+![ortho_view](3.Visualization/3.1_Blender/png/blender_ortho.PNG)  
 *perspective view*
-![perspective_view](3.Visualization\3.1_Blender\png\blender_perspective.PNG)
+![perspective_view](3.Visualization/3.1_Blender/png/blender_perspective.PNG)
 This way of view the “patients” enables the possibility to see the exercises in 2D and 3D but also with and without perspective(with perspective helps to understand the movement, without makes it easy to compare the “patients to eachother”), all this can be done in realtime and full moveability of the camera in the same viewport.  
 
 ## Result:  
@@ -336,8 +344,8 @@ In order to validate the 3D visualization made in Blender, we either needed to c
 
 To make sure, that the exercises will be performed exactly how I envisioned them beforehand, I created a [protocol](4.Research\PNG\LUMC_protocol_empty.pdf). This protocol contains hand drawn descriptions of the exercise and also step by step instructions for the “patient”. We didn’t want to rely on filenames and the protocol, we also filmed all the execises that had been performed by our group at the LUMC.
 
-![protocol1](4.Research\PNG\LUMC_protocol_empty.png)
-![protocol2](4.Research\PNG\LUMC_protocol_empty2.png)
+![protocol1](4.Research/PNG/LUMC_protocol_empty.png)
+![protocol2](4.Research/PNG/LUMC_protocol_empty2.png)
 
 ### 3.1.3.2 The Outcome
 
@@ -355,7 +363,7 @@ For whatever reason, this order needed to be switched for different movements in
 ## 3.2 Matplotlib
 
 ## 3.2.1 Plotting the CSV's in 2D
-- code is in [*visualize.py*](2.Learning_on_Machine_Learning\src2\fd\visualize.py) 
+- code is in [*visualize.py*](2.Learning_on_Machine_Learning/src2/fd/visualize.py) 
 -  Commit 42948dc5  
 
 After I made my first contact with the data in Blender and some minor experiments with Machinelearning, I started creating some scatterplots, to further understand the data.  
@@ -370,7 +378,7 @@ Visualise_patient.plot()
 
 In src2[*/main.py*](2.Learning_on_Machine_Learning/src2/main.py) a visualization gets shown, after the training and test data gets created. This visualization shows the data exactly how it gets handed to a machine learning model.  
 
-![csv_2D](3.Visualization\PNG\CSV_2D.png)
+![csv_2D](3.Visualization/PNG/CSV_2D.png)
 
 
 This graph was more a proof of concept, than an actual tool for visualization. This came, when I integrated the Visualization class into the main branch. At this point of the project we realized that patientgroup 4 we received from the LUMC wasn’t what we expected it to be. The values in pg4 were completely different, then the ones for pg 1-3. 
@@ -387,17 +395,17 @@ if config.show_visualization:
     vv.visualise(mode='exercise')
     vv.visualise(mode = 'idle') 
 ```
-*This code was copied out of `main.py` in [src](3.Visualization\3.2_Master2.0Branch\src\main.py)*  
+*This code was copied out of `main.py` in [src](3.Visualization/3.2_Master2.0Branch/src/main.py)*  
   
 <br>  
 
 The user can choose which Petientgroups, out of these groups which patients, what exercises and what bones should be displayed in the graphs. If none of the parameters gets set, the script will grab all the information out of the config. Also the length of the exercise doesn’t matter, since the script gets all it’s information out of the config.  
-- code is in [*visualiseraw.py*](3.Visualization\3.2_Master2.0Branch\src\tools\visualiseraw.py) 
+- code is in [*visualiseraw.py*](3.Visualization/3.2_Master2.0Branch/src/tools/visualiseraw.py) 
   
-![visualize_exercise](3.Visualization\PNG\visualize_exercise.png)
+![visualize_exercise](3.Visualization/PNG/visualize_exercise.png)
 *The visualize_exercise function compares different exercises between Patientgroups and patients and bones.*
 
-![visualize_idle](3.Visualization\PNG\visualize_idle.png) 
+![visualize_idle](3.Visualization/PNG/visualize_idle.png) 
 
 The visualize_idle function was created to help validate Hassans script to remove the idle at the end and the beginning of every exercise. In this graph one patients exercise gets it's own subgraph, keep in mind there are most of the times two itterations of every exercise, thats why two line are plotted in the subplot. Therefore the two line have a different color, just as the responding "idle" lines.
 
@@ -429,7 +437,7 @@ Our group was asked to show our project at the campus at Zoetemeer, for this eve
 - poster v7  
 
 # 4. Research
-
+- #TODO Research question here
 ## 4.1 Answering the Subquestions
 At the beginning of the project, we had some lectures about research, in these lectures we learned how to come up with a researchquestion and how we can asnwer it by using more simplyfied subquestions. 
 Since we didn't have much domain knowledge in the beginning, it made a lot of sense to start working on the library and field questions.  
@@ -467,5 +475,25 @@ General Strategy:
 5. finished paper, check typos
 ```
 For the first point: "1. structure" I started with a very simple version and improved it over multiple itteration. These files can be found  `here`.
+
+# Outcome vs researchquestion and what was my part
 # 5. Presentations
 # 6. Conclusion and Reflection
+# 6.1 STARR
+- drive of the group
+- problem solving
+- 
+- future plans with this knowledge
+me being contact person
+
+what did i do  
+what did i learn  
+how did we do it  
+
+## reflect on:
+- what went right  
+- what went wrong  
+- what would I do differently next time  
+- 
+
+# TODO Scrum Board with all my tasks
