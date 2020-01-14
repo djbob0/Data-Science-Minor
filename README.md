@@ -382,7 +382,7 @@ In src2[*/main.py*](2.Learning_on_Machine_Learning/src2/main.py) a visualization
 ![csv_2D](3.Visualization/PNG/CSV_2D.png)
 
 
-This graph was more a proof of concept, than an actual tool for visualization. This came, when I integrated the Visualization class into the main branch. At this point of the project we realized that patientgroup 4 we received from the LUMC wasn’t what we expected it to be(thanks to the [visualization](3.Visualization/PNG/cat1_vs_cat4.png) I created). The values in pg4 were completely different, then the ones for patientgroup 1-3. 
+This graph was more a proof of concept, than an actual tool for visualization. This came, when I integrated the Visualization class into the main branch. At this point of the project we realized that patientgroup 4 we received from the LUMC wasn’t what we expected it to be(thanks to the [visualizations](3.Visualization/PNG/123vs4) I created). The values in pg4 were completely different, then the ones for patientgroup 1-3. 
 
 
 
@@ -464,7 +464,7 @@ I was the first person in the group who started working on the research paper. T
 
 In [Paper_guide_by_Raphi.docx](4.Research/4.2_Writing_a_paper/4.2.1_starting_structure/Paper_guide_by_Raphi.docx) is a brief summary of "how to write a good paper" with some more in depth explanation of for example difficult terms. 
 
-I also came up with a general guide on how the writing process should go about. 
+I also came up with a general guide on how the writing process should go about: 
 
 ```
 General Strategy:
