@@ -462,7 +462,7 @@ I was the first person in the group who started working on the research paper. T
 - paper here  
 
 
-In Paper_guide_by_Raphi.docx is a brief summary of "how to write a good paper" with some more in depth explanation of for example difficult terms. 
+In [Paper_guide_by_Raphi.docx](4.Research/4.2_Writing_a_paper/4.2.1_starting_structure/Paper_guide_by_Raphi.docx) is a brief summary of "how to write a good paper" with some more in depth explanation of for example difficult terms. 
 
 I also came up with a general guide on how the writing process should go about. 
 
