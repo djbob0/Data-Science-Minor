@@ -92,7 +92,7 @@ for data in get_data(directory):
     df = data.get_bodypart('thorax', 'r')
     print(get_mean(df, 'thorax_r_x'))
 ```
-*This code was copied out of `test.py` in [2.2_getting_to_know](2.Learning_on_Machine_Learning/2.2_getting_to_know)*   
+*This code was copied out of [test.py](2.Learning_on_Machine_Learning/2.2_getting_to_know/test.py) in [2.2_getting_to_know](2.Learning_on_Machine_Learning/2.2_getting_to_know)*   
 <br>
 <br>
 In this script there's only used two functions: `get_data` and `get_mean` . 
@@ -152,7 +152,7 @@ print('ORTHO: Prepairing Dataset')
 controller = DataController(config)
 controller.run()
 ```
-*This code was copied out of `main_raphi.py` in [src](2.Learning_on_Machine_Learning/src)*   
+*This code was copied out of [main_raphi.py](2.Learning_on_Machine_Learning/src/main_raphi.py) in [src](2.Learning_on_Machine_Learning/src)*   
 
 The moment I got this script working, our main structure in the masterbranch changed again, so I continued working with the code that was already supplied by my colleges. In [src2/main](2.Learning_on_Machine_Learning/src2/main.py). A `np_combination_train` and `np_combination_test` gets created. Those are `X` and `y` for the most of the machinelearning models. This is the first time, I used this data structure that was planned for the model from the beginning, even from the last group.  
 
@@ -170,7 +170,7 @@ Also to mention is that  I prepared some data together with Hassan (both working
 At first it was thought, that we’re going to use an RNN as an unsupervised training method, but we decided to use a CNN instead. That is because of the data structure we’re working with. Since there is, for every bone in every patient, an X Y and Z Euler-Angle, we can put these three values in one RGB pixel. Eventhough it isn’t necessary for a Nural Network to have an input like this, we thought it would be a nice way of preprocessing the data, without loosing any of the information. In order to achieve something like this, the rotation first need to be normalized and the mapped on a scale from 0 to 1.  
 ## This is a visual representation of the inputdata for the CNN
 ![NN_input](2.Learning_on_Machine_Learning/2.3.2_NN/NN_input_data.png)  
-*Every column is a bones combined X,Y,Z, where 8 bones (8 columns) are one exercise of one patient. The rows are the length(frames) of one exercise. Given the fact that one patient did 5 exercises over a resampled length of 40 frames: this picture is (8*5)px x 40px. 
+*Every column is a bones combined `X`,`Y`,`Z`, where 8 bones (8 columns) are one exercise of one patient. The rows are the length(frames) of one exercise. Given the fact that one patient did 5 exercises over a resampled length of 40 frames: this picture is (8*5)px x 40px. 
 
 As it is already described in the picture above, the “width” of the inputdata are the eight bones of the upper body, for 5 different exercises performed by one patient. Therefore one picture is one iteration of all the exercises one Patient has done( AB1, AF1,RF1,AH1…) the arrays shape is (40,100,(3)) Where 40 is 8 bones * 5 exercises and the 100 is the resampled framecount(length of exercise) the third(3) dimension is represented in the picture by the colour at the given pixel. These tensors then get stored in one bigger Tensor, which then gets fed to the CNN.
 
@@ -246,14 +246,11 @@ Epoch 10/10
 The graph shows the accuracy of the train and test set, in the printout the loss of the train and test set can be seen. By looking at the graph one can see, that the test and train set start to stray apart from each other at epoch 3. In loss for both sets is still going down until epoch 7. But in general you could say, that the model is overfitting, especially after epoch 3. This is beacuase of the size of the layers in the model and the fact, that we haven't cleaned the data properly at this point(so there's bias in some patientgroups). Also it might be a problem, that we're feeding all the patients exercises at once. And it needs to be adressed, that we ( Hassan and I) only used 3 out of our 4 patientgroups, because of problems with the dataset.
 
 
-# TODO explain the printout of  (propably overfitting after epoch 3 because the layers in the CNN are too big) also it was not splitted exercises and execises glued together, only 1-3 PG atm
 
 As I said, it is not the best possible outcome for a model, but these results let us guess, that there is sufficient information in the data to do classification. Now it was in Hassans hands to find the best architecture for the CNN, eventough he often relied on my educated guess on whatever the outcome of a model was good or not. 
 
 
 ## 2.4 Understanding last Groups Work
-
-- described by task 122 partly   
 
 
 In order to get everybody on the same page with their machine learning skills by week 10, we created a task, as a researcher I want to understand the steps the last group took. Therefore we created a Excel sheet to keep track on progress.   
@@ -263,7 +260,6 @@ In order to get everybody on the same page with their machine learning skills by
 *[MachineLearning_progress.xlsx](2.Learning_on_Machine_Learning/2.4_understanding_last_group/MachineLearning_progress.xlsx)*
 
 This task contains multiple subtasks, that have either been completed just to complete the subtask or in order to accomplish something else in the project. Here I will give links to the sections in my portfolio where I completed those tasks.  
-- `add links` 
 
 
 | Task | link |
@@ -276,10 +272,6 @@ This task contains multiple subtasks, that have either been completed just to co
 | Redo analysis from last year with the new data | [Outcommented code at the bottom of file](2.Learning_on_Machine_Learning/src2/main.py) |
 ## 2.5 Jupyter Notebooks on Machine Learing
 
-- Done till 3.3 auto MPG regression  
-
-- What kind of proof?  
-- Is it necessary?  
 
 In preparation for the test, I started working through all the Machinelearing Notebooks provided on the datascience server. Therefore, I simultaneously had the lecture and the notebook open, this way I was able to understand and see the techniques used in the lectures by myself on my own computer. The given problems were built up gradually and of course followed the weekly lectures in the same paste.  
 
@@ -349,7 +341,6 @@ The Euler angles were in the way of getting a proper visualization. We also didn
 
 ### 3.1.3.1 The Protocol
 
-- Scan in pages of LUMC  
 
 In order to validate the 3D visualization made in Blender, we either needed to check back with our client at the LUMC and get a verification that the animations are correct. The other possibility was, to create out own exercises, which one of the group members would perform while hooked up to the same Flock of Birds system, that has been use to collect the patientdata we received, at the LUMC.  
 
@@ -366,7 +357,6 @@ Once we visited the LUMC and recorded our own movement data, It was about time t
 
 Even though we had a protocol, to keep track in which order the tasks have been performed, it still was wearisome work, because this wasn’t the time for mistakes, since the recording should proof the reliability of the script that was planned to be used to label our dataset. To Accomplish this task I used Adobe Premiere.  
 
-- filled protocoll scan in 
 
 After hours of trial and error, I came to the conclusion, that I won’t be able to get a proper representation of the data, using Blender. That’s because of the Euler Angles that are used to describe the patients movement. In the Euler Angles nature lays, that the three angles can only describe ONE rotation in 3d space. This only applies, if the three axes are staying in the same order. This being said: `X` = 34°, `Y` = 45°,  `Z` = 180° is different to : `Z` = 180°, `X` = 34°, `Y` = 45°. 
 For whatever reason, this order needed to be switched for different exercises in Blender. But I could see the corealation at some points but not good enough so I didn't want to make any assumptions, because this script was seen as a tool to find errors in the data.
@@ -426,7 +416,7 @@ The visualize_idle function was created to help validate Hassans script to remov
 
 All the efforts to get a real 3D visualization in Blender didn’t bring any good results and just let us continue guessing. Since Assumptions aren’t any good in machine learing, we needed a visualization that we could trust. Therefore Eddie wrote a script, based on the last groups work, to visualize the RAW files we received from the LUMC. I used this as a base for my script. Eddies effort is the 3D graph at the top, mine was putting it all together) 
 
-![GIF of visualization](3.Visualization\PNG\animation.gif)
+![GIF of visualization](3.Visualization/PNG/animation.gif)
 
 This script was most and foremost created to understand fully what exercises contain which movent in Euler Angles. Therefore replacing the effort that was made to create a 3D animation in Blender.  
 This script also served as the base for work that was done by Lennart to find wrongly named exercises in the files. 
@@ -515,5 +505,19 @@ how did we do it
 - what went wrong  
 - what would I do differently next time  
 - 
+
+
+| S | T | A | R | R | 
+| --- | --- | --- | --- | --- |
+| At the beginning of the project we didn’t have labeled exercises. The exercises were just labeled 1 till 7. But we couldn’t be sure that exercise 1 for different patients contains the same movement. | I took the task on myself to create visualization in Blender to get a proper animation of the data in 3D, so that we could be sure what exercises were what. | I did research on the Euler angles and the gimbal lock, and I learned a lot about scripting in python in general but also in Blender. In the end I created a mixed 2D and 3D visualization. | The result was a factsheet that explained the domain of Kinematic recordings at the LUMC. I found out that Blender isn’t the right tool so I switched back to matplotlib. | While trying to visualize the data, I got to know the data structure pretty good, I also cleared up some assumptions on the column labels by creating the factsheet. I also learned the importance of presenting your outcomes to the rest of the group, otherwise the work is only done for one person. |  
+
+| S | T | A | R | R | 
+| --- | --- | --- | --- | --- |
+| The general drive in the group wasn’t as good as it could be: People weren’t arriving on time and when they arrived, they made no effort in contributing to the project. | I was tasked to be the contact person for the LUMC, while somebody else was the SCRUM-master and another person was responsible for the repository.  | In order to push the motivation of the group passively I arrived on time every morning. This gave me the opportunity to ask the group members about their tasks and what they’re doing. I also did a good part of the general planning and sometimes even filling the backlog. Holding the daily standups was also mostly me being pushy to the rest of the group. | I made myself responsible for more than I needed to, because I felt like nobody else would do it. This led to exactly what I was fearing: The rest of the group also relied on my planning and structure. But also on keeping track with their progress with their tasks. | Around week 15 I felt the pressure on myself getting bigger, which led me to become more quiet in the group, coming in later and I stopped asking my colleges about heir tasks. I also didn’t insist on the standup anymore. I would describe myself as a leading personality, this semester I learned how to work with that. When things started going in the wrong direction for the project I made myself responsible for the problem, instead of getting them started to think in the right direction by themselves, I already thought for them. This developed to become more and more the norm, until the point were I felt like the only person who is able to do their own thinking and decision making in the group. At this point I could say for sure, that the project wouldn’t have made it to the end of the semester, if it weren’t for me.
+Thankfully I recognized this behavior by Christmas, and was then able to slowly get myself back out of this position, by just keeping my head low, even if it meant for the project to go on more slowly than it could have been. We don’t have the best results, but at least I could keep my sanity.
+
+| S | T | A | R | R | 
+| --- | --- | --- | --- | --- |
+| We as a project group were using SCRUM as an organization tool, even tough we had nobody to take the spot of the Product owner. That is because we’re doing research and Tony was our “teacher” | We needed to come up with a main research question, but also with some subquestions and an epic, to at least give the impression, that we are working with a product owner. | In order to find research questions, we first of all did some research on research and then we brainstormed to find out where this research should head in the future. Also an epic got created by Tony, to help us find a research question.  | The result of this was, that we had sub and a main research question and also the epics, but still nobody who kept track or at least asked us if we’re still on the way, the product owner has intended. This lead to us, loosing focus on what needs to be done. | Since we didn’t have a product owner that checked up on us a couple of time throughout the project, it was really hard to define for ourselves, what work is actually important and in what directions we should head in order to finish the project.  |
 
 # TODO Scrum Board with all my tasks
