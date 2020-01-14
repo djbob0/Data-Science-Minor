@@ -35,9 +35,11 @@ This is the personal portfolio for The Data Science Minor at THUAS by Raphael Pi
 - [6. Conclusion and Reflection](#6-Conclusion-and-reflection)
 
 # 1. Introduction
+In the extent of the Applid Data Science Minor 2019/20 at The Hague University of Applied Sciences I, Raphael Pickl, was working on a project called Ortho eyes. 
+Here is a `link` to the research paper that was the main outcome of the project. The introduction in the paper gives enough information on what the project was about and what the startign ground for our research was.
 
 # 2. Learning on Machine Learning
-In this chapter my personal development in Machine Learing gets discussed. <br>
+In this chapter my personal development in Machine Learing gets discussed.  
 Which courses and what actions did I take to improve on my Machine Leaning skills.
 ## 2.1 DataCamp and Udemy Courses 
 ## 2.1.1 DataCamp
