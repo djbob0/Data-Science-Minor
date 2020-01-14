@@ -263,6 +263,15 @@ In order to get everybody on the same page with their machine learning skills by
 This task contains multiple subtasks, that have either been completed just to complete the subtask or in order to accomplish something else in the project. Here I will give links to the sections in my portfolio where I completed those tasks.  
 - `add links` 
 
+
+| Task | link |
+| --- | --- | 
+| Read in a simple dataset in python | [3.2.1 Plotting the CSV's in 2D](#321-Plotting-the-CSV's-in-2D)|
+| 2D Visualization | [3.2.1 Plotting the CSV's in 2D](#321-Plotting-the-CSV's-in-2D) |
+| Train simple model | [Outcommented code at the bottom of file](2.Learning_on_Machine_Learning/src2/main.py) |
+| Understand result from last analysis | [2.4 Understanding Last Groups Work](#24-Understanding-last-groups-work) | 
+| Train calssification model | [Outcommented code at the bottom of file](2.Learning_on_Machine_Learning/src2/main.py) | 
+| Redo analysis from last year with the new data | [Outcommented code at the bottom of file](2.Learning_on_Machine_Learning/src2/main.py) |
 ## 2.5 Jupyter Notebooks on Machine Learing
 
 - Done till 3.3 auto MPG regression  
@@ -358,7 +367,7 @@ Even though we had a protocol, to keep track in which order the tasks have been 
 - filled protocoll scan in 
 
 After hours of trial and error, I came to the conclusion, that I won’t be able to get a proper representation of the data, using Blender. That’s because of the Euler Angles that are used to describe the patients movement. In the Euler Angles nature lays, that the three angles can only describe ONE rotation in 3d space. This only applies, if the three axes are staying in the same order. This being said: `X` = 34°, `Y` = 45°,  `Z` = 180° is different to : `Z` = 180°, `X` = 34°, `Y` = 45°. 
-For whatever reason, this order needed to be switched for different movements in Blender. But I could re the corealation and I didn't want to make any assumptions, because this script was seen as a tool to find errors in the data.
+For whatever reason, this order needed to be switched for different exercises in Blender. But I could see the corealation at some points but not good enough so I didn't want to make any assumptions, because this script was seen as a tool to find errors in the data.
 
 ## 3.2 Matplotlib
 
@@ -374,17 +383,16 @@ from fd.visualize import Visualise_patient
 Visualise_patient(patient_group, patientnr=[1],right = True, left = False, linelabel= True)
 Visualise_patient.plot()
 ```
-*This code was copied out of `main.py` in [src2](2.Learning_on_Machine_Learning/src2)*
+*This code was copied out of `main.py` in [src2](2.Learning_on_Machine_Learning/src2/main.py)*
 
 In src2[*/main.py*](2.Learning_on_Machine_Learning/src2/main.py) a visualization gets shown, after the training and test data gets created. This visualization shows the data exactly how it gets handed to a machine learning model.  
 
 ![csv_2D](3.Visualization/PNG/CSV_2D.png)
 
 
-This graph was more a proof of concept, than an actual tool for visualization. This came, when I integrated the Visualization class into the main branch. At this point of the project we realized that patientgroup 4 we received from the LUMC wasn’t what we expected it to be. The values in pg4 were completely different, then the ones for pg 1-3. 
+This graph was more a proof of concept, than an actual tool for visualization. This came, when I integrated the Visualization class into the main branch. At this point of the project we realized that patientgroup 4 we received from the LUMC wasn’t what we expected it to be(thanks to the [visualization](3.Visualization/PNG/cat1_vs_cat4.png) I created). The values in pg4 were completely different, then the ones for patientgroup 1-3. 
 
 
-- screenshot of configurations for the Visualize class  
 
 In order to contribute to the project, I created a class Visualize in the master branch, that anybody could make use of, just by turning it on in the config and by changing a few parameters in the definition of the class. 
 
@@ -400,7 +408,7 @@ if config.show_visualization:
 <br>  
 
 The user can choose which Petientgroups, out of these groups which patients, what exercises and what bones should be displayed in the graphs. If none of the parameters gets set, the script will grab all the information out of the config. Also the length of the exercise doesn’t matter, since the script gets all it’s information out of the config.  
-- code is in [*visualiseraw.py*](3.Visualization/3.2_Master2.0Branch/src/tools/visualiseraw.py) 
+- code is in [*visualis.py*](3.Visualization/3.2_Master2.0Branch/src/tools/visualis.py) 
   
 ![visualize_exercise](3.Visualization/PNG/visualize_exercise.png)
 *The visualize_exercise function compares different exercises between Patientgroups and patients and bones.*
@@ -412,41 +420,44 @@ The visualize_idle function was created to help validate Hassans script to remov
 
 ## 3.2.2 Plotting RAW and CSV files
 
-- master 2.0 tools/viusalizeRAW 
+- code is in [*visualiseraw.py*](3.Visualization/3.2_Master2.0Branch/src/tools/visualiseraw.py) 
 
-All the efforts to get a real 3D visualization in Blender didn’t bring any good results and just let us continue guessing. Since Assumptions aren’t any good in machine learing, we needed a visualization that we could trust. Therefore Eddie wrote a script, based on the last groups work, to visualize the RAW files we received from the LUMC. I used this as a base for my script. 
+All the efforts to get a real 3D visualization in Blender didn’t bring any good results and just let us continue guessing. Since Assumptions aren’t any good in machine learing, we needed a visualization that we could trust. Therefore Eddie wrote a script, based on the last groups work, to visualize the RAW files we received from the LUMC. I used this as a base for my script. Eddies effort is the 3D graph at the top, mine was putting it all together) 
 
-- GIF of visualization
+![GIF of visualization](3.Visualization\PNG\animation.gif)
 
 This script was most and foremost created to understand fully what exercises contain which movent in Euler Angles. Therefore replacing the effort that was made to create a 3D animation in Blender.  
 This script also served as the base for work that was done by Lennart to find wrongly named exercises in the files. 
 
 
 ## 3.3 Checking for Flipped Sensors
-- answer in issue still
+
 
 For anomaly detection we wanted to make sure, that the way the sensores are attached to the patients doesn't mess with the data. Therefore we did one set of exercises at the LUMC with a flipped sensor on the right humerus. 
 
-- raphi flipped vs raphi 
+![flipped sensors](3.Visualization/PNG/Raph_flipped_vs_raphi.png)
 
 Upon visual inspection there is no significant difference between the first and the second recording of Raphaels normal exercises.(keeping in mind, that the sensor was flipped on the Humerus alone)
 
 ## 3.4 Poster for Zoetemeer
 
-Our group was asked to show our project at the campus at Zoetemeer, for this event I designed a poster. 
-- poster v7  
+Our group was asked to show our project at the campus at Zoetemeer, for this event I designed a [poster](3.Visualization/PNG/Poster_Ortho_EyesV7.pdf).  
+
+Unfortunatly the only person that got in contact with us in Zoetemeer, was Eerwin Vlugt, to whom we talk to already at different occasions. This was due to the space were we could put up our stand, it wasn't organized properly, so simply nobody we could talk to came by.
+
 
 # 4. Research
-- #TODO Research question here
+    To what extend and in what way, can different supervised data science  
+    techniques be used on kinematic recordings to contribute to a more valid  
+    and more reliable diagnosis, made by a doctor, on shoulder disability?
 ## 4.1 Answering the Subquestions
 At the beginning of the project, we had some lectures about research, in these lectures we learned how to come up with a researchquestion and how we can asnwer it by using more simplyfied subquestions. 
 Since we didn't have much domain knowledge in the beginning, it made a lot of sense to start working on the library and field questions.  
 
-- subquestions.png
+![subquestions](4.Research/PNG/subquestions.PNG)
 
-It was everybodys task to pick at least on of the question, find a researchpaper that describs the problem or even answers it. These Results should be saved somewhere, so that the other group members have acces to the summaries. 
-
-- link to excel sheet  
+It was everybodys task to pick at least on of the question, find a researchpaper that describs the problem or even answers it. These results should be saved somewhere, so that the other group members have acces to the summaries.  
+[Here's](4.Research/4.1_Answering_the_Subquestions) my contribution to this task.
 
 
 ## 4.2 Writing a paper
@@ -474,11 +485,18 @@ General Strategy:
 4. check references etc.
 5. finished paper, check typos
 ```
-For the first point: "1. structure" I started with a very simple version and improved it over multiple itteration. These files can be found  `here`.
+For the first point: "1. structure" I started with a very simple version and improved it over multiple itteration. These files can be found [here](4.Research/4.2_Writing_a_paper/4.2.1_starting_structure/1.structure).
 
 # Outcome vs researchquestion and what was my part
 # 5. Presentations
+Here's a list of presentations I was working on during this semester:
+- [week 1](5.Presentations/Ortho_week1.pptx)
+- [week 8 open presentation](5.Presentations/OpenPresentation_2_week8.pptx)
+- [week 12 open presentation](5.Presentations/OpenPresentation_3_week12.pptx)
+- [how to blender](3.Visualization/3.1_Blender/Visualisation.pptx)
+
 # 6. Conclusion and Reflection
+
 # 6.1 STARR
 - drive of the group
 - problem solving
