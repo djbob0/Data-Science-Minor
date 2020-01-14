@@ -59,7 +59,6 @@ For what it's worth, I was able to work through 67% of the course, which was eno
 By the time I was finished with the course, I was more familiar with machine learning in general. I learned a lot about Model in genral, objective functions, optimazation algorithms, Tensorflow, under- and overfitting, early stopping and of course preprocessing of the data in general.  
 - [Notes Udemy](2.Learning_on_Machine_Learning/2.1.2_Udemy/Notes_Udemy.pdf)  
 ## 2.2 First Steps With our Data
-Writing a script to get basic information about the data depending on exercises  
 
 
 After I got to know our data through the experiments in Blender, where at this point I was only able to load in one file at a time, I decided to read some basic information from the data. Instead of only using one file at a time, I wanted to calculate the mean for one axes, the X-axes of the right thorax, for all of the files contained in one given folder. Eventhough the mean of a dataframe can easily be calculated with the df.mean() function, I found this exercise really helpful, because it helped me understand the datastructure and it's dimensions. Also it got me used to working with classes and functions without getting to complicated for the start.
@@ -247,7 +246,7 @@ The graph shows the accuracy of the train and test set, in the printout the loss
 
 
 
-As I said, it is not the best possible outcome for a model, but these results let us guess, that there is sufficient information in the data to do classification. Now it was in Hassans hands to find the best architecture for the CNN, eventough he often relied on my educated guess on whatever the outcome of a model was good or not. 
+As I said, it is not the best possible outcome for a model, but these results let us guess, that there is sufficient information in the data to do classification. Now it was in Hassans hands to find the best architecture for the CNN, even though he often relied on my educated guess on whatever the outcome of a model was good or not. 
 
 
 ## 2.4 Understanding last Groups Work
@@ -490,33 +489,21 @@ Here's a list of presentations I was working on during this semester:
 # 6. Conclusion and Reflection
 
 # 6.1 STARR
-- drive of the group
-- problem solving
-- 
-- future plans with this knowledge
-me being contact person
-
-what did i do  
-what did i learn  
-how did we do it  
-
-## reflect on:
-- what went right  
-- what went wrong  
-- what would I do differently next time  
-- 
-
+  
+## What did I do?
 
 | S | T | A | R | R | 
 | --- | --- | --- | --- | --- |
 | At the beginning of the project we didn’t have labeled exercises. The exercises were just labeled 1 till 7. But we couldn’t be sure that exercise 1 for different patients contains the same movement. | I took the task on myself to create visualization in Blender to get a proper animation of the data in 3D, so that we could be sure what exercises were what. | I did research on the Euler angles and the gimbal lock, and I learned a lot about scripting in python in general but also in Blender. In the end I created a mixed 2D and 3D visualization. | The result was a factsheet that explained the domain of Kinematic recordings at the LUMC. I found out that Blender isn’t the right tool so I switched back to matplotlib. | While trying to visualize the data, I got to know the data structure pretty good, I also cleared up some assumptions on the column labels by creating the factsheet. I also learned the importance of presenting your outcomes to the rest of the group, otherwise the work is only done for one person. |  
 
+## What did I learn?
 | S | T | A | R | R | 
 | --- | --- | --- | --- | --- |
 | The general drive in the group wasn’t as good as it could be: People weren’t arriving on time and when they arrived, they made no effort in contributing to the project. | I was tasked to be the contact person for the LUMC, while somebody else was the SCRUM-master and another person was responsible for the repository.  | In order to push the motivation of the group passively I arrived on time every morning. This gave me the opportunity to ask the group members about their tasks and what they’re doing. I also did a good part of the general planning and sometimes even filling the backlog. Holding the daily standups was also mostly me being pushy to the rest of the group. | I made myself responsible for more than I needed to, because I felt like nobody else would do it. This led to exactly what I was fearing: The rest of the group also relied on my planning and structure. But also on keeping track with their progress with their tasks. | Around week 15 I felt the pressure on myself getting bigger, which led me to become more quiet in the group, coming in later and I stopped asking my colleges about heir tasks. I also didn’t insist on the standup anymore. I would describe myself as a leading personality, this semester I learned how to work with that. When things started going in the wrong direction for the project I made myself responsible for the problem, instead of getting them started to think in the right direction by themselves, I already thought for them. This developed to become more and more the norm, until the point were I felt like the only person who is able to do their own thinking and decision making in the group. At this point I could say for sure, that the project wouldn’t have made it to the end of the semester, if it weren’t for me. Thankfully I recognized this behavior by Christmas, and was then able to slowly get myself back out of this position, by just keeping my head low, even if it meant for the project to go on more slowly than it could have been. We don’t have the best results, but at least I could keep my sanity.
 
+## What did we learn?
 | S | T | A | R | R | 
 | --- | --- | --- | --- | --- |
-| We as a project group were using SCRUM as an organization tool, even tough we had nobody to take the spot of the Product owner. That is because we’re doing research and Tony was our “teacher” | We needed to come up with a main research question, but also with some subquestions and an epic, to at least give the impression, that we are working with a product owner. | In order to find research questions, we first of all did some research on research and then we brainstormed to find out where this research should head in the future. Also an epic got created by Tony, to help us find a research question.  | The result of this was, that we had sub and a main research question and also the epics, but still nobody who kept track or at least asked us if we’re still on the way, the product owner has intended. This lead to us, loosing focus on what needs to be done. | Since we didn’t have a product owner that checked up on us a couple of time throughout the project, it was really hard to define for ourselves, what work is actually important and in what directions we should head in order to finish the project.  |
+| We as a project group were using SCRUM as an organization tool, even though we had nobody to take the spot of the Product owner. That is because we’re doing research and Tony was our “teacher”. | We needed to come up with a main research question, but also with some subquestions and an epic, to at least give the impression, that we are working with a product owner. | In order to find research questions, we first of all did some research on research and then we brainstormed to find out where this research should head in the future. Also an epic got created by Tony, to help us find a research question.  | The result of this was, that we had sub and a main research question and also the epics, but still nobody who kept track or at least asked us if we’re still on the way, the product owner has intended. This lead to us, loosing focus on what needs to be done. | Since we didn’t have a product owner that checked up on us a couple of time throughout the project, it was really hard to define for ourselves, what work is actually important and in what directions we should head in order to finish the project. Therefore we can be really happy with the outcome of the project, and we can be proud that we made it to the end.  |
 
 # TODO Scrum Board with all my tasks
