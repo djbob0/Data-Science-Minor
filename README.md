@@ -23,8 +23,8 @@ This is the personal portfolio for The Data Science Minor at THUAS by Raphael Pi
       - [3.1.3.1 The Protocol](#3131-The-Protocol)
       - [3.1.3.2 The Outcome](#3132-The-Outcome)
   - [3.2 Matplotlib](#32-Matplotlib)
-    - [3.2.1 Plotting the CSV's in 2D](#321-Plotting-the-CSV's-in-2D)
-    - [3.2.2 Plotting RAW and CSV files](#3.2.2-Plotting-RAW-and-CSV-files)
+    - [3.2.1 Plotting the CSV's in 2D](#321-Plotting-the-CSVs-in-2D)
+    - [3.2.2 Plotting RAW and CSV files](#322-Plotting-RAW-and-CSV-files)
   - [3.3 Checking for Flipped Sensors](#33-Checking-for-Flipped-Sensors)
   - [3.4 Poster for Zoetemeer](#34-Poster-for-Zoetemeer)
 - [4. Research](#4-Research)
@@ -361,7 +361,7 @@ For whatever reason, this order needed to be switched for different exercises in
 
 ## 3.2 Matplotlib
 
-## 3.2.1 Plotting the CSV's in 2D
+## 3.2.1 Plotting the CSVs in 2D
 - code is in [*visualize.py*](2.Learning_on_Machine_Learning/src2/fd/visualize.py) 
 -  Commit 42948dc5  
 
