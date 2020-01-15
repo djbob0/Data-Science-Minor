@@ -1,5 +1,5 @@
 # Data-Science-Minor
-This is the personal portfolio for The Data Science Minor at THUAS by Raphael Pickl
+This is the personal portfolio for The Data Science Minor at THUAS by Raphael Pickl (19076460).
 
 
 # Table of contents:
@@ -45,7 +45,7 @@ Which courses and what actions did I take to improve on my Machine Leaning skill
 ## 2.1 DataCamp and Udemy Courses 
 ## 2.1.1 DataCamp
 
-In the first weeks of our project, we planned one day a week for the Datacamp courses. Since I already had a small coding project in Python, which was self-thought, the year before, I already knew the basic syntax of the language. Though, having a structured course layed out, which shows one the proper techniques, which are used in the Machinelearning field.  
+In the first weeks of our project, we planned one day a week for the Datacamp courses. Since I already had a small coding project in Python, which was self-thought, the year before, I already knew the basic syntax of the language. Though, having a structured course layed out, which shows one the proper techniques, which are used in the Machinelearning field really improved my skills..  
 
 ![completedcourses](2.Learning_on_Machine_Learning/2.1.1_Datacamp/completed_courses1.PNG)  
 
@@ -57,12 +57,12 @@ I was able to score a good deal on one of the Udemy courses on Neural Networks w
 ![udemycomplete](2.Learning_on_Machine_Learning/2.1.2_Udemy/Udemy_tensorflow2.0.PNG)
 
 For what it's worth, I was able to work through 67% of the course, which was enough to get a good understanding on what neural networks actually are and how they interprete the data we supply.  
-By the time I was finished with the course, I was more familiar with machine learning in general. I learned a lot about Model in genral, objective functions, optimazation algorithms, Tensorflow, under- and overfitting, early stopping and of course preprocessing of the data in general.  
+By the time I was finished with the course, I was more familiar with machine learning in general. I learned a lot about the model in general, objective functions, optimazation algorithms, Tensorflow, under- and overfitting, early stopping and of course preprocessing of the data in general.  
 - [Notes Udemy](2.Learning_on_Machine_Learning/2.1.2_Udemy/Notes_Udemy.pdf)  
 ## 2.2 First Steps With our Data
 
 
-After I got to know our data through the experiments in Blender, where at this point I was only able to load in one file at a time, I decided to read some basic information from the data. Instead of only using one file at a time, I wanted to calculate the mean for one axes, the X-axes of the right thorax, for all of the files contained in one given folder. Eventhough the mean of a dataframe can easily be calculated with the df.mean() function, I found this exercise really helpful, because it helped me understand the datastructure and it's dimensions. Also it got me used to working with classes and functions without getting to complicated for the start.
+After I got to know our data through the experiments in Blender, where at this point I was only able to load in one file at a time, I decided to read some basic information from the data. Instead of only using one file at a time, I wanted to calculate the mean for one axes, the X-axes of the right thorax, for all of the files contained in one given folder. Eventhough the mean of a dataframe can easily be calculated with the df.mean() function, I found this exercise really helpful, because it helped me understand the datastructure and it's dimensions. Also it got me used to working with classes and functions without getting to complicated for the beginning.
 
  
 ```python
@@ -95,8 +95,8 @@ for data in get_data(directory):
 *This code was copied out of [test.py](2.Learning_on_Machine_Learning/2.2_getting_to_know/test.py) in [2.2_getting_to_know](2.Learning_on_Machine_Learning/2.2_getting_to_know)*   
 <br>
 <br>
-In this script there's only used two functions: `get_data` and `get_mean` . 
-`get_data` makes use of the parser class, to get back a list of all the dataframes in the directory. `get_mean` calculates the mean of one column in a dataframe.   
+In this script there are only two functions used: `get_data()` and `get_mean()` . 
+`get_data()` makes use of the parser class, to get back a list of all the dataframes in the directory. `get_mean()` calculates the mean of one column in a dataframe.   
 
 At the end of the script I simply loop trough the whole datalist to get all the means of all the files. The printout isn't really pretty, but since it was more a proof of concept it worked for me:  
 ```
@@ -154,11 +154,11 @@ controller.run()
 ```
 *This code was copied out of [main_raphi.py](2.Learning_on_Machine_Learning/src/main_raphi.py) in [src](2.Learning_on_Machine_Learning/src)*   
 
-The moment I got this script working, our main structure in the masterbranch changed again, so I continued working with the code that was already supplied by my colleges. In [src2/main](2.Learning_on_Machine_Learning/src2/main.py). A `np_combination_train` and `np_combination_test` gets created. Those are `X` and `y` for the most of the machinelearning models. This is the first time, I used this data structure that was planned for the model from the beginning, even from the last group.  
+The moment I got this script working, our main structure in the master branch changed again, so I continued working with the code that was already supplied by my colleges. In [src2/main.py](2.Learning_on_Machine_Learning/src2/main.py) A `np_combination_train` and `np_combination_test` gets created. Those are `X` and `y` for the most of the machinelearning models. This is the first time, I used this data structure that was planned for the model from the beginning, even from the last group.  
 
-- Explain the datastrucure here:  
+![data structure](2.Learning_on_Machine_Learning/PNG/datastructure.png)
 
-Here is an explanation on the data strucure by one of my colleges. Since I’ve been working with the 65 column data structure to do visualizations and whatnot, I can say with certainty, that I understood the structure and know how it gets created.  
+*This image shows the general  data shape we've been using for machine learning*
 
 ## 2.3.2 Neural Networks
 
@@ -167,7 +167,7 @@ Also to mention is that  I prepared some data together with Hassan (both working
 - *All the code can be found in [2.3.2_NN/src](2.Learning_on_Machine_Learning/2.3.2_NN/src) where [CNN.py](2.Learning_on_Machine_Learning/2.3.2_NN/src/CNN.py) is the main.*   
 
 
-At first it was thought, that we’re going to use an RNN as an unsupervised training method, but we decided to use a CNN instead. That is because of the data structure we’re working with. Since there is, for every bone in every patient, an X Y and Z Euler-Angle, we can put these three values in one RGB pixel. Eventhough it isn’t necessary for a Nural Network to have an input like this, we thought it would be a nice way of preprocessing the data, without loosing any of the information. In order to achieve something like this, the rotation first need to be normalized and the mapped on a scale from 0 to 1.  
+At first it was thought, that we’re going to use an RNN as an supervised training method, but we decided to use a CNN instead. That is because of the data structure we’re working with. Since there is, for every bone in every patient, an X Y and Z Euler-Angle, we can put these three values in one RGB pixel. Eventhough it isn’t necessary for a Nural Network to have an input like this, we thought it would be a nice way of preprocessing the data, without loosing any of the information. In order to achieve something like this, the rotation first need to be normalized and the mapped on a scale from 0 to 1.  
 ## This is a visual representation of the inputdata for the CNN
 ![NN_input](2.Learning_on_Machine_Learning/2.3.2_NN/NN_input_data.png)  
 *Every column is a bones combined `X`,`Y`,`Z`, where 8 bones (8 columns) are one exercise of one patient. The rows are the length(frames) of one exercise. Given the fact that one patient did 5 exercises over a resampled length of 40 frames: this picture is (8*5)px x 40px. 
@@ -284,7 +284,6 @@ Since our Dataset was quite different than for example the MNIST or other exampl
 
 ## 3.1.1 Creating a Wireframe Model in Blender
 
-- Master branch contains all blend files  
 
 Before any sort of a model could be created, it was upon me, to figure out what the data actually means. With some information from the LUMC and a paper describing the WU standard for Euler Angles in bone structures, I came up with a [factsheet](3.Visualization/3.1_Blender/Overview_Axes_LUMCvsWU.pdf) to describe which columns is responsible for which bone and in this bone which axes.  
 
@@ -293,7 +292,8 @@ Before any sort of a model could be created, it was upon me, to figure out what 
 
 *The left side of the `factsheet` is the labeling standart the LUMC is using, which is based on the WU standart. On the left side the axes order goes from `top` to `bottom`, on the right side a better illustration, but with different axes names can be seen.*
 
-Afterwards, the struggle began to find the best “resting position” for the armature(the skeleton). This basically went down through trial and error. I first started with only one side(right side) and if I saw movement that made sense for my eyes I tried to construct the left arm based on the right one. 
+Afterwards, the struggle to find the best “resting position” for the armature(the skeleton) began. This basically went down through trial and error. I first started with only one side(right side) and if I saw movement that made sense for my eyes I tried to construct the left arm based on the right one. 
+
 ![first_armature](3.Visualization/3.1_Blender/png/blender_first_armature.PNG)
 
 
@@ -342,16 +342,14 @@ The Euler angles were in the way of getting a proper visualization. We also didn
 ### 3.1.3.1 The Protocol
 
 
-In order to validate the 3D visualization made in Blender, we either needed to check back with our client at the LUMC and get a verification that the animations are correct. The other possibility was, to create out own exercises, which one of the group members would perform while hooked up to the same Flock of Birds system, that has been use to collect the patientdata we received, at the LUMC.  
+In order to validate the 3D visualization made in Blender, we either needed to check back with our client at the LUMC and get a verification that the animations are correct. The other possibility was, to create our own exercises, which one of the group members would perform while hooked up to the same Flock of Birds system, that has been use to collect the patient data we received, at the LUMC.  
 
 To make sure, that the exercises will be performed exactly how I envisioned them beforehand, I created a [protocol](4.Research\PNG\LUMC_protocol_empty.pdf). This protocol contains hand drawn descriptions of the exercise and also step by step instructions for the “patient”. We didn’t want to rely on filenames and the protocol, we also filmed all the execises that had been performed by our group at the LUMC.
 
 ![protocol1](4.Research/PNG/LUMC_protocol_empty.png)
-![protocol2](4.Research/PNG/LUMC_protocol_empty2.png)
 
 ### 3.1.3.2 The Outcome
 
-- Files locally   
 
 Once we visited the LUMC and recorded our own movement data, It was about time to validate the script I created earlier. The first step was, to cut the recorded video files to the right length and name them with the corresponding filenames of the .CSV – files.  
 
